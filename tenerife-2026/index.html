@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d4343">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tenerife 26">
+  <title>Tenerife · Mayo 2026</title>
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#f0f4f3;
+  color:#1a1a2e;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:15px;
+  max-width:480px;
+  margin:0 auto;
+  min-height:100vh;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(170deg,#eef7f6 0%,#f5faf9 100%);
+  text-align:center;
+  padding:1.75rem 1.25rem 1.5rem;
+  padding-top:calc(env(safe-area-inset-top,0px) + 1.75rem);
+  position:relative;
+  border-bottom:1px solid #e2eded;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#0d4343,#1a7a6e 50%,#f4a261);
+}
+.hero h1{
+  font-size:2.6rem;font-weight:800;letter-spacing:-.03em;
+  color:#0d2d2d;line-height:1;margin-bottom:.45rem;
+}
+.hero-year{color:#1a7a6e}
+.hero-date{
+  font-size:12px;color:#9ca3af;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.info-btn{
+  position:absolute;
+  top:calc(env(safe-area-inset-top,0px) + .875rem);
+  right:1rem;
+  width:30px;height:30px;
+  border-radius:50%;
+  border:1.5px solid #d1d5db;
+  background:#fff;
+  color:#6b7280;
+  font-size:14px;font-weight:700;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
+  line-height:1;
+}
+.info-btn:active{background:#f3f4f6}
+
+/* MODAL */
+.modal-overlay{
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:300;
+  align-items:flex-end;
+}
+.modal-overlay.open{display:flex}
+.modal{
+  background:#fff;
+  border-radius:20px 20px 0 0;
+  padding:0 1.25rem calc(1.75rem + env(safe-area-inset-bottom,0px));
+  width:100%;
+  max-height:75vh;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  animation:slideUp .25s ease;
+}
+@keyframes slideUp{
+  from{transform:translateY(100%)}
+  to{transform:translateY(0)}
+}
+.modal-handle{
+  width:40px;height:4px;
+  background:#e5e7eb;border-radius:2px;
+  margin:12px auto 1.25rem;
+}
+.modal-title{
+  font-size:1rem;font-weight:700;
+  color:#0d2d2d;margin-bottom:1.1rem;
+}
+.info-section{margin-bottom:1.25rem}
+.info-section-hdr{
+  font-size:10px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:#9ca3af;margin-bottom:.5rem;
+}
+.info-row{
+  display:flex;gap:10px;
+  padding:9px 0;
+  border-bottom:1px solid #f3f4f6;
+  align-items:flex-start;
+}
+.info-row:last-child{border-bottom:none}
+.info-lbl{font-weight:600;color:#1a1a2e;min-width:68px;font-size:12px;padding-top:1px}
+.info-val{color:#6b7280;font-size:12px;line-height:1.55}
+
+/* JOURNEY ITEMS */
+.journey-item{
+  display:flex;align-items:flex-start;gap:11px;
+  padding:10px 12px;background:#f8fafb;
+  border-radius:12px;margin-bottom:8px;
+}
+.journey-item.flight{
+  background:linear-gradient(135deg,#f0f8f7 0%,#eaf3f1 100%);
+  border:1px solid #d0e9e5;
+}
+.ji-icon{
+  width:34px;height:34px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;flex-shrink:0;margin-top:1px;
+}
+.ji-bus{background:#dbeafe}
+.ji-plane{background:#d1fae5}
+.ji-car{background:#fef9c3}
+.ji-home{background:#f3e8ff}
+.ji-body{flex:1;min-width:0}
+.ji-label{font-size:13px;font-weight:600;color:#1a1a2e;margin-bottom:3px}
+.ji-sub{font-size:12px;color:#6b7280;line-height:1.5}
+.ji-note{font-size:11px;color:#1a7a6e;font-weight:700;margin-top:6px}
+.ji-warn{font-size:11px;color:#d97706;font-weight:700;margin-top:4px}
+
+/* FLIGHT ROUTE */
+.flight-route{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.fr-side{flex-shrink:0}
+.fr-right{text-align:right}
+.fr-code{font-size:17px;font-weight:800;color:#0d2d2d;line-height:1}
+.fr-time{font-size:12px;color:#1a7a6e;font-weight:600;margin-top:1px}
+.fr-mid{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
+.fr-plane{font-size:12px;color:#1a7a6e}
+.fr-line{width:100%;height:1px;background:linear-gradient(90deg,#c7ddd9,#1a7a6e,#c7ddd9)}
+.fr-dur{font-size:10px;color:#9ca3af;letter-spacing:.02em;font-weight:500}
+
+/* NAV */
+.nav-wrap{
+  position:sticky;top:0;z-index:100;
+  background:#fff;border-bottom:1px solid #e5e7eb;
+  overflow-x:auto;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.nav-wrap::-webkit-scrollbar{display:none}
+.nav{display:flex;padding:.5rem .75rem;gap:5px;min-width:max-content}
+.np{
+  background:none;border:1.5px solid #e5e7eb;border-radius:22px;
+  padding:7px 16px;cursor:pointer;color:#6b7280;
+  transition:all .2s;
+  display:flex;align-items:center;justify-content:center;
+  min-height:38px;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;touch-action:manipulation;
+}
+.np strong{font-size:13px;font-weight:700}
+.np span{display:none}
+.np.active{
+  background:#1a7a6e;color:#fff;border-color:#1a7a6e;
+  box-shadow:0 2px 8px rgba(26,122,110,.3);
+}
+
+/* CONTENT */
+.day{display:none;padding:1rem 1rem calc(3rem + env(safe-area-inset-bottom,0px))}
+.day.active{display:block}
+.day-hdr{margin-bottom:.875rem;padding-bottom:.75rem;border-bottom:1px solid #f0f4f3}
+.day-hdr p{font-size:11px;font-weight:700;color:#1a7a6e;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem}
+.day-hdr h2{font-size:.875rem;font-weight:500;color:#6b7280;line-height:1.4}
+.t-free{display:none}
+
+.alert{
+  background:#fffbeb;border-left:3px solid #f59e0b;
+  border-radius:0 8px 8px 0;
+  padding:10px 13px;font-size:12px;color:#92400e;
+  margin-bottom:.75rem;line-height:1.55;
+}
+.note{
+  background:#eff6ff;border-left:3px solid #3b82f6;
+  border-radius:0 8px 8px 0;
+  padding:10px 13px;font-size:12px;color:#1e40af;
+  margin-bottom:.75rem;line-height:1.55;
+}
+.rbox{
+  background:#e8f5f2;border-radius:10px;
+  padding:11px 13px;margin-bottom:.75rem;
+  font-size:12px;color:#0d6657;line-height:1.55;
+}
+.rbox strong{display:block;font-size:13px;font-weight:700;margin-bottom:4px}
+
+/* ACTIVITY CARDS */
+.act{
+  background:#fff;
+  border-radius:14px;
+  padding:.875rem 1rem;
+  margin-bottom:.25rem;
+  border-left:4px solid #e5e7eb;
+  box-shadow:0 2px 12px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.03);
+}
+.act-meta{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-bottom:.35rem}
+.act-time{font-size:12px;font-weight:700;color:#9ca3af;letter-spacing:.03em;min-width:36px}
+.atype{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+.act h3{font-size:14px;font-weight:700;margin-bottom:.25rem;line-height:1.35}
+.act p{font-size:12px;color:#6b7280;line-height:1.55;margin-bottom:.4rem}
+
+.tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:600}
+
+.links{display:flex;flex-direction:column;gap:4px;margin-top:.5rem}
+.lnk{font-size:12px;color:#2563eb;text-decoration:none;padding:2px 0}
+.lnk::before{content:'↗ '}
+
+/* CARD TYPE COLORS
+   drive   → gris pizarra    #64748b
+   hike    → verde esmeralda #3a9458
+   swim    → azul océano     #1a8da6
+   culture → amatista        #8a5dc7
+   park    → ámbar cálido    #d4700a
+   food    → frambuesa       #cb4f72
+*/
+.act.drive  {border-left-color:#64748b}
+.act.hike   {border-left-color:#3a9458}
+.act.swim   {border-left-color:#1a8da6}
+.act.culture{border-left-color:#8a5dc7}
+.act.park   {border-left-color:#d4700a}
+.act.food   {border-left-color:#cb4f72}
+
+/* TRANSFER — timeline */
+.transfer{
+  display:flex;align-items:center;
+  gap:10px;
+  padding:2px 0 2px 1.1rem;
+  margin:0 0 .25rem;
+}
+.transfer::before{
+  content:'';
+  width:2px;height:28px;
+  flex-shrink:0;
+  background:repeating-linear-gradient(
+    to bottom,
+    #cbd5e1 0 5px,
+    transparent 5px 9px
+  );
+}
+.tr-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:9px;
+  padding:5px 11px 5px 8px;
+  font-size:11px;font-weight:600;
+  color:#64748b;
+  box-shadow:0 1px 3px rgba(0,0,0,.05);
+}
+.tr-pill svg{flex-shrink:0;color:#94a3b8}
+
+.td{background:#f1f5f9;color:#64748b}
+.th{background:#dcfce7;color:#14532d}
+.ts{background:#cffafe;color:#164e63}
+.tc{background:#f3e8ff;color:#6b21a8}
+.tp{background:#ffedd5;color:#7c2d12}
+.tf{background:#fce7f3;color:#9d174d}
+
+.t-free{background:#dcfce7;color:#166534}
+.t-pay{background:#fef9c3;color:#713f12}
+.t-warn{background:#fee2e2;color:#991b1b}
+.t-shoe{background:#faf5ff;color:#6b21a8}
+.t-info{background:#dbeafe;color:#1e40af}
+
+/* FOOD OPTIONS */
+.lopt{
+  font-size:12px;padding:7px 0;
+  border-bottom:1px solid #f3f4f6;
+  color:#6b7280;line-height:1.45;
+}
+.lopt:last-child{border-bottom:none}
+.lopt strong{color:#1a1a2e;display:block;font-size:12px;font-weight:700;margin-bottom:2px}
+
+.day-end{
+  margin-top:1.25rem;padding:12px 16px;
+  background:#e8f5f2;border-radius:10px;
+  font-size:13px;color:#0d5c52;font-weight:600;
+}
+
+/* PRICES */
+.ptable{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:1rem}
+.ptable th{
+  text-align:left;padding:7px 6px;
+  font-size:10px;font-weight:700;color:#9ca3af;
+  text-transform:uppercase;letter-spacing:.06em;
+  border-bottom:1px solid #e5e7eb;
+}
+.ptable td{padding:10px 6px;border-bottom:1px solid #f3f4f6;vertical-align:top;line-height:1.45}
+.ptable tr:last-child td{border-bottom:none}
+
+.sec-title{
+  font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:#9ca3af;margin:1.25rem 0 .6rem;
+}
+
+.pill-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.gpill{
+  background:#fff;border-radius:10px;padding:9px 11px;
+  font-size:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);
+}
+.gpill strong{display:block;font-weight:700;font-size:12px;margin-bottom:2px}
+.gpill span{color:#6b7280;font-size:11px}
+
+.cat-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:8px}
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <button class="info-btn" onclick="toggleInfo()" aria-label="Información del viaje">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><circle cx="12" cy="8.5" r=".6" fill="currentColor" stroke="none"/></svg>
+  </button>
+  <h1>Tenerife <span class="hero-year">2026</span></h1>
+  <div class="hero-date">22 mayo — 28 mayo</div>
+</div>
+
+<!-- Modal info -->
+<div id="info-modal" class="modal-overlay" onclick="closeModalOverlay(event)">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Información del viaje</div>
+
+    <!-- IDA -->
+    <div class="info-section">
+      <div class="info-section-hdr">Ida · Viernes 22 mayo</div>
+
+      <div class="journey-item">
+        <div class="ji-icon ji-bus">🚌</div>
+        <div class="ji-body">
+          <div class="ji-label">Bus → Aeropuerto de Málaga</div>
+          <div class="ji-sub">02:00 &rarr; 03:45</div>
+        </div>
+      </div>
+
+      <div class="journey-item flight">
+        <div class="ji-icon ji-plane">✈</div>
+        <div class="ji-body">
+          <div class="flight-route">
+            <div class="fr-side">
+              <div class="fr-code">AGP</div>
+              <div class="fr-time">06:00</div>
+            </div>
+            <div class="fr-mid">
+              <div class="fr-plane">✈</div>
+              <div class="fr-line"></div>
+              <div class="fr-dur">1h 40min · Directo</div>
+            </div>
+            <div class="fr-side fr-right">
+              <div class="fr-code">TFS</div>
+              <div class="fr-time">07:40</div>
+            </div>
+          </div>
+          <div class="ji-note">🚗 Recogida coche · 08:00 h</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VUELTA -->
+    <div class="info-section">
+      <div class="info-section-hdr">Vuelta · Jueves 28 mayo</div>
+
+      <div class="journey-item flight">
+        <div class="ji-icon ji-plane">✈</div>
+        <div class="ji-body">
+          <div class="flight-route">
+            <div class="fr-side">
+              <div class="fr-code">TFN</div>
+              <div class="fr-time">15:55</div>
+            </div>
+            <div class="fr-mid">
+              <div class="fr-plane">✈</div>
+              <div class="fr-line"></div>
+              <div class="fr-dur">2h 25min · Directo</div>
+            </div>
+            <div class="fr-side fr-right">
+              <div class="fr-code">AGP</div>
+              <div class="fr-time">19:20</div>
+            </div>
+          </div>
+          <div class="ji-note">🚗 Devolución coche · antes de las 15:00 h</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOSPEDAJE -->
+    <div class="info-section" style="margin-bottom:0">
+      <div class="info-section-hdr">Hospedaje</div>
+      <div class="journey-item">
+        <div class="ji-icon ji-home">🏠</div>
+        <div class="ji-body">
+          <div class="ji-label">Apartamento · Tacoronte</div>
+          <div class="ji-sub">22 mayo — 28 mayo · 6 noches</div>
+          <div class="ji-warn">📍 Ubicación por confirmar</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="nav-wrap">
+  <div class="nav">
+    <button class="np active" onclick="show('d1',this)"><strong>D1</strong><span>Llegada</span></button>
+    <button class="np" onclick="show('d2',this)"><strong>D2</strong><span>Teide</span></button>
+    <button class="np" onclick="show('d3',this)"><strong>D3</strong><span>Anaga</span></button>
+    <button class="np" onclick="show('d4',this)"><strong>D4</strong><span>Norte</span></button>
+    <button class="np" onclick="show('d5',this)"><strong>D5</strong><span>Noroeste</span></button>
+    <button class="np" onclick="show('d6',this)"><strong>D6</strong><span>Siam</span></button>
+    <button class="np" onclick="show('d7',this)"><strong>D7</strong><span>Vuelta</span></button>
+    <button class="np" onclick="show('pr',this)"><strong>€</strong><span>Precios</span></button>
+    <button class="np" onclick="show('ex',this)"><strong>+</strong><span>Extras</span></button>
+  </div>
+</div>
+
+<!-- D1 -->
+<div id="d1" class="day active">
+  <div class="day-hdr"><p>Viernes 22 mayo</p><h2>Tajao · Candelaria · Santa Cruz · Teresitas · Médano</h2></div>
+
+  <div class="act culture"><div class="act-meta"><span class="act-time">09:45</span><span class="atype tc">Paisaje</span></div><h3>Arco de Tajao</h3><p>Formación volcánica natural en forma de arco sobre el mar, en el pequeño pueblo pesquero de Tajao. Paseo corto por el puerto y las rocas.</p><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>10 min</span></div>
+
+  <div class="act culture"><div class="act-meta"><span class="act-time">10:10</span><span class="atype tc">Paisaje</span></div><h3>Faro de Abona</h3><p>El faro más antiguo de Tenerife (1895). Paisaje volcánico desértico, acantilados y vistas al mar. Muy fotogénico y sin turistas.</p><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>20 min</span></div>
+
+  <div class="act culture"><div class="act-meta"><span class="act-time">10:40</span><span class="atype tc">Cultural</span></div><h3>Basílica de Candelaria</h3><p>Patrona de Canarias. Plaza con 9 estatuas guanches frente al mar. Interior barroco.</p><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>15 min</span></div>
+
+  <div class="act culture"><div class="act-meta"><span class="act-time">11:45</span><span class="atype tc">Cultural</span></div><h3>Santa Cruz de Tenerife</h3><p>Auditorio Adán Martín, Rambla de Santa Cruz, Parque García Sanabria, Iglesia de la Concepción.</p><div class="tags"><span class="tag t-free">Paseo gratuito</span></div></div>
+
+  <div class="act food"><div class="act-meta"><span class="act-time">13:30</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Santa Cruz</h3>
+    <div class="lopt"><strong>Mercado de Ntra. Señora de África</strong>Tapas y cocina canaria, el más bonito de la ciudad</div>
+    <div class="lopt"><strong>Terrazas de la Rambla</strong>Bocadillos y raciones en ambiente animado</div>
+    <div class="lopt"><strong>El Coto de Antonio</strong>Cocina canaria tradicional, buena relación calidad-precio</div>
+  </div>
+
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>10 min</span></div>
+
+  <div class="act swim"><div class="act-meta"><span class="act-time">14:45</span><span class="atype ts">Baño</span></div><h3>Playa de Las Teresitas</h3><p>Única playa de arena dorada del norte (traída del Sáhara). Aguas muy tranquilas. Primer baño.</p><div class="tags"><span class="tag t-free">Gratuita</span></div></div>
+
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>40 min</span></div>
+
+  <div class="act swim"><div class="act-meta"><span class="act-time">16:45</span><span class="atype ts">Playa</span></div><h3>El Médano + La Tejita + Montaña Roja</h3><p>Pueblo bohemio, kitesurf espectacular. Subida opcional a Montaña Roja: panorámica del sur.</p><div class="tags"><span class="tag t-free">Todo gratuito</span><span class="tag t-shoe">Calzado deportivo si se sube</span></div></div>
+
+  <div class="day-end">Casa ~20:30 h · Cena en casa</div>
+</div>
+
+<!-- D2 -->
+<div id="d2" class="day">
+  <div class="day-hdr"><h2>Pinar de La Esperanza + Parque Nacional del Teide + Vilaflor</h2><p>Sábado 23 mayo · Bosque, volcán y pueblo de montaña · Salida 07:15 h</p></div>
+  <div class="alert">Calzado de senderismo recomendado todo el día. Ropa de abrigo, agua y protector solar alto. Temperatura 5–12°C en el Parque.</div>
+  <div class="note">Todo el día completamente gratuito excepto el almuerzo.</div>
+  <div class="rbox"><strong>El día en resumen</strong>Subida por TF-24 → Pinar de La Esperanza → entrada al Parque por El Portillo → Llano de Ucanca → Roques de García → base del teleférico → bajar a Vilaflor a comer → miradores de tarde → Chipeque al atardecer</div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">07:15</span><span class="atype td">Coche</span></div><h3>Salida por la TF-24 — La Esperanza</h3><p>La carretera más bonita al Teide desde el norte: cruza un pinar centenario denso antes de emerger sobre las nubes. ~1 h hasta el Pinar.</p><div class="tags"><span class="tag t-free">Acceso gratuito</span></div></div>
+  <div class="act hike"><div class="act-meta"><span class="act-time">08:15</span><span class="atype th">Senderismo</span></div><h3>Pinar de La Esperanza — Paseo por el bosque</h3><p>Pinos canarios centenarios de hasta 30 m, suelo de pinocha, silencio total. Paseo de 2–3 km por pistas forestales llanas, ~50 min. Contraste brutal con el paisaje volcánico que viene después.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-free">Gratuito</span></div></div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">09:30</span><span class="atype td">Coche</span></div><h3>Entrada al Parque por El Portillo + Llano de Ucanca</h3><p>Centro de Visitantes El Portillo (exposición gratuita, ~30 min). Luego Llano de Ucanca: arena volcánica clara con el cono del Teide al fondo.</p><div class="tags"><span class="tag t-free">Todo gratuito</span></div></div>
+  <div class="act hike"><div class="act-meta"><span class="act-time">10:45</span><span class="atype th">Senderismo</span></div><h3>Sendero Roques de García</h3><p>Circular de 4,5 km entre las formaciones más icónicas del Parque: La Catedral, Dedo de Dios, Roque Cinchado. El Teide al fondo en todo momento. ~1 h 45 min. Aparcamiento gratuito junto al inicio.</p><div class="tags"><span class="tag t-shoe">Calzado recomendado</span><span class="tag t-free">Gratuito · sin permiso</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">12:45</span><span class="atype tc">Parada</span></div><h3>Base del teleférico — Vale la pena aunque no subas</h3><p>A 2 km de los Roques. El cono del Teide sobre tu cabeza a 2.356 m es impresionante. Exposición gratuita y cafetería. 15–20 min.</p><div class="tags"><span class="tag t-free">Gratuito · sin subir</span></div></div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">13:15</span><span class="atype td">Coche</span></div><h3>Bajada a Vilaflor — ~25 min por TF-21</h3><p>El pueblo más alto de España (1.400 m). Casas blancas, iglesia del s. XVI, terrazas con vistas directas al Teide. Tranquilo y sin turismo.</p></div>
+  <div class="act food"><div class="act-meta"><span class="act-time">14:00</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Vilaflor</h3>
+    <div class="lopt"><strong>Restaurante La Ruleta</strong>Cocina canaria de pueblo, precios muy razonables, ambiente local</div>
+    <div class="lopt"><strong>Bar-restaurante El Sombrerito</strong>Raciones y platos del día, terraza con vistas al valle</div>
+    <div class="lopt"><strong>Terrazas de la plaza</strong>Café o vino canario mientras ves el Teide</div>
+  </div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">15:30</span><span class="atype td">Miradores</span></div><h3>Vuelta al Parque — Miradores de tarde</h3><p>Luz cálida y tonos anaranjados. Paradas en Mirador del Tabonal Negro y Mirador de La Fortaleza (vistas del Valle de La Orotava y el mar).</p><div class="tags"><span class="tag t-free">Todo gratuito</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">17:30</span><span class="atype tc">Atardecer</span></div><h3>Mirador de Chipeque — Atardecer épico</h3><p>A 1.830 m en la TF-24. El sol se pone detrás del Teide sobre un mar de nubes. En mayo cae ~20:30 h.</p><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+  <div class="day-end">Casa ~21:00 h · Cena en casa · Tour estrellas nocturno opcional ~22:00 h</div>
+</div>
+
+<!-- D3 -->
+<div id="d3" class="day">
+  <div class="day-hdr"><h2>Anaga · Taganana · Roque de las Bodegas · Punta del Hidalgo · Benijo</h2><p>Domingo 24 mayo · Laurisilva, piscinas y el atardecer más fotogénico · Salida 07:45 h</p></div>
+  <div class="alert">El parking de Cruz del Carmen se llena pronto los domingos. Salir a las 07:45 h sin falta.</div>
+  <div class="note">Benijo al atardecer (~20:30 h en mayo) es el punto culminante del día. Llegáis a las 17:30 h con tiempo de sobra. Llevar linterna para la vuelta por escaleras oscuras.</div>
+  <div class="act hike"><div class="act-meta"><span class="act-time">08:15</span><span class="atype th">Senderismo</span></div><h3>Cruz del Carmen — Sendero de los Sentidos</h3><p>1–3 km por laurisilva milenaria (Reserva de la Biosfera). Fresco y húmedo: chaqueta obligatoria. ~2 h, nivel fácil.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-free">Gratuito</span></div></div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">10:30</span><span class="atype td">Miradores</span></div><h3>Miradores de Anaga — Taborno + Bailadero</h3><p>Crestas de Anaga con vistas de barrancos y acantilados a ambos lados de la dorsal. ~30 min.</p><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">11:15</span><span class="atype tc">Cultural</span></div><h3>Pueblo de Taganana</h3><p>Caserío histórico entre montañas. Iglesia del s. XVI. Paseo breve y algo en un bar del pueblo. ~30 min.</p><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">12:00</span><span class="atype ts">Playa</span></div><h3>Roque de las Bodegas</h3><p>Playa de arena y grava oscura con un gran roque volcánico. Ambiente local auténtico. Baño posible (aguas frescas, oleaje moderado).</p><div class="tags"><span class="tag t-free">Acceso gratuito</span></div></div>
+  <div class="act food"><div class="act-meta"><span class="act-time">13:30</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Roque de las Bodegas</h3>
+    <div class="lopt"><strong>Restaurante El Roque</strong>Primera línea de mar, pescado fresco del día</div>
+    <div class="lopt"><strong>Chiringuitos de la playa</strong>Lapas a la brasa, pulpo, vino de Anaga</div>
+    <div class="lopt"><strong>Picnic en la playa</strong>Traer comida preparada de Tacoronte</div>
+  </div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">15:00</span><span class="atype ts">Baño</span></div><h3>Punta del Hidalgo — Piscinas volcánicas + faro</h3><p>Charco Las Furnias y El Arenisco: Bandera Azul, socorristas, duchas, rampas. Faro singular. Vistas al Teide desde el mar. ~1 h 30 min.</p><div class="tags"><span class="tag t-free">Piscinas gratuitas</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">17:30</span><span class="atype tc">Atardecer</span></div><h3>Playa de Benijo — Atardecer más fotogénico de Tenerife</h3><p>Arena negra entre los Roques de Anaga. No apta para baño (oleaje fuerte). El sol cae sobre los roques ~20:30 h. Llevar linterna para la vuelta.</p><div class="tags"><span class="tag t-shoe">Calzado con suela para escaleras</span><span class="tag t-warn">Sin servicios · llevar agua · aparcamiento ~2€</span><span class="tag t-free">Gratuita</span></div></div>
+  <div class="day-end">Casa ~21:30 h · Cena en casa</div>
+</div>
+
+<!-- D4 -->
+<div id="d4" class="day">
+  <div class="day-hdr"><h2>La Laguna · La Orotava · Puerto de la Cruz · Loro Parque · Rambla de Castro</h2><p>Lunes 25 mayo · Cultura, parque y sendero al atardecer · Salida 08:00 h</p></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">08:30</span><span class="atype tc">Cultural</span></div><h3>San Cristóbal de La Laguna — Casco UNESCO</h3><p>Arquitectura colonial de colores, ambiente universitario. Plaza del Adelantado, Catedral, Calle Obispo Rey Redondo. ~1 h.</p><div class="tags"><span class="tag t-free">Paseo gratuito</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">09:30</span><span class="atype tc">Cultural</span></div><h3>La Orotava — Casco histórico colonial</h3><p>Casa de los Balcones (s. XVII), Plaza de la Constitución, Jardines Victoria con vistas al Teide. ~45 min.</p><div class="tags"><span class="tag t-free">Paseo gratuito</span></div></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">10:15</span><span class="atype ts">Baño</span></div><h3>Puerto de la Cruz — Lago Martiánez + Plaza del Charco</h3><p>Piscinas de agua de mar diseñadas por César Manrique. Paseo por el barrio histórico. ~1 h 30 min.</p><div class="tags"><span class="tag t-pay">Lago ~6€ taquilla</span><span class="tag t-free">Plaza del Charco: gratis</span></div></div>
+  <div class="act food"><div class="act-meta"><span class="act-time">12:00</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Puerto de la Cruz</h3>
+    <div class="lopt"><strong>Restaurante El Botánico</strong>Cocina canaria clásica en el barrio histórico</div>
+    <div class="lopt"><strong>Mercado Municipal</strong>Puestos de comida local y frutas tropicales</div>
+    <div class="lopt"><strong>Terrazas de la Plaza del Charco</strong>Tapas frente al puerto pesquero</div>
+  </div>
+  <div class="act park"><div class="act-meta"><span class="act-time">13:15</span><span class="atype tp">Parque</span></div><h3>Loro Parque — Tarde completa (~4 h)</h3><p>N.º 1 del mundo (Tripadvisor). Orcas, delfines, pingüinario más grande del mundo, gorilas, tigres, leones, loros libres. 4 espectáculos. Cierra 17:30 h.</p><div class="tags"><span class="tag t-pay">~44€ turista</span><span class="tag t-warn">Ciudadanos UE: precio reducido con DNI</span></div>
+  <div class="links"><a class="lnk" href="https://www.loroparque.com/ticketsonline/es/paso0" target="_blank">Web oficial</a><a class="lnk" href="https://www.headout.com/es/loro-parque-tenerife-l14498/" target="_blank">Precio UE — Headout</a><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">Twin Ticket Loro+Siam (~69,56€)</a></div></div>
+  <div class="act hike"><div class="act-meta"><span class="act-time">17:45</span><span class="atype th">Senderismo</span></div><h3>Rambla de Castro — Sendero costero al atardecer</h3><p>A 10 min de Loro Parque. Palmeral más bello de Tenerife entre acantilados. Casona de los Castro, Fortín de San Fernando, Elevador Gordejuela (1903). Lineal: 2 km hasta Playa de Castro y vuelta. ~2 h. Luz hasta las 20:30 h.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-free">Gratuito</span></div>
+  <div class="links"><a class="lnk" href="https://www.tenerifeon.es/itinerarios/sendero/rambla-de-castro" target="_blank">Info sendero oficial</a></div></div>
+  <div class="day-end">Casa ~20:00 h · Cena en casa</div>
+</div>
+
+<!-- D5 -->
+<div id="d5" class="day">
+  <div class="day-hdr"><h2>Drago Milenario · Garachico · Masca · Los Gigantes · Playa de la Arena</h2><p>Martes 26 mayo · El noroeste más salvaje · Salida 07:30 h</p></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">08:15</span><span class="atype tc">Cultural</span></div><h3>Icod de los Vinos — Drago Milenario</h3><p>El drago más longevo del mundo (~1.000 años), 18 m de altura, 20 m de perímetro. Jardín botánico espectacular. ~1 h.</p><div class="tags"><span class="tag t-pay">~5€ taquilla presencial</span></div></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">09:30</span><span class="atype ts">Baño</span></div><h3>Garachico — El Caletón + pueblo histórico</h3><p>El pueblo más bonito del norte. Piscinas volcánicas El Caletón: cubetas naturales de roca llenas por el mar, la imagen más icónica de Tenerife. Castillo San Miguel (s. XVI). ~1 h 30 min.</p><div class="tags"><span class="tag t-free">Acceso gratuito</span></div></div>
+  <div class="act hike"><div class="act-meta"><span class="act-time">11:15</span><span class="atype th">Pueblo</span></div><h3>Valle de Masca — Pueblo + mirador del barranco</h3><p>Pueblo a 650 m entre acantilados de 600 m. Uno de los paisajes más dramáticos de España. Carretera de montaña espectacular desde Garachico. ~1 h.</p><div class="tags"><span class="tag t-shoe">Calzado con suela para miradores</span><span class="tag t-free">Pueblo gratuito</span><span class="tag t-warn">Sendero barranco: solo sáb/dom con permiso</span></div></div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">13:00</span><span class="atype td">Coche</span></div><h3>Bajada a Los Gigantes</h3><p>20 min bajando desde Masca.</p></div>
+  <div class="act food"><div class="act-meta"><span class="act-time">14:00</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Los Gigantes</h3>
+    <div class="lopt"><strong>Restaurantes del paseo marítimo</strong>Vistas a los acantilados, pescado fresco</div>
+    <div class="lopt"><strong>Terrazas del puerto</strong>Ambiente marinero, raciones más económicas</div>
+  </div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">15:00</span><span class="atype tc">Mirador</span></div><h3>Acantilados de Los Gigantes — Mirador de Archipenque</h3><p>600 m de pared negra sobre el Atlántico con La Gomera al fondo. A 5 min andando del puerto. También el paseo marítimo desde el nivel del agua. ~1 h.</p><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">16:15</span><span class="atype ts">Playa</span></div><h3>Playa de la Arena — Puerto de Santiago</h3><p>A 5 min de Los Gigantes. Arena volcánica negra muy fina, aguas tranquilas y cristalinas, Bandera Azul. Una de las más bonitas del oeste de Tenerife. ~1 h 45 min.</p><div class="tags"><span class="tag t-free">Gratuita · Bandera Azul</span></div></div>
+  <div class="day-end">Casa ~18:30 h · El día más temprano de la semana</div>
+</div>
+
+<!-- D6 -->
+<div id="d6" class="day">
+  <div class="day-hdr"><h2>Siam Park + Playa del Duque</h2><p>Miércoles 27 mayo · Adrenalina acuática y relax en el sur · Salida 08:45 h</p></div>
+  <div class="alert">Llegar a Siam Park en la apertura (10:00 h) es clave para las principales atracciones sin colas.</div>
+  <div class="note">Estáis en la zona de Adeje, junto a Playa de las Américas / Los Cristianos. Si queréis ver el paseo más turístico de Tenerife, este es el momento — podéis pasar por allí antes de Playa del Duque.</div>
+  <div class="act park"><div class="act-meta"><span class="act-time">10:00</span><span class="atype tp">Parque</span></div><h3>Siam Park</h3><p>10 años n.º 1 del mundo. Tower of Power (28 m a través de un acuario), Singha (n.º 1 Europa), ola de 3 m, río Mai Thai, Coco Beach. Cierra 17:00 h.</p><div class="tags"><span class="tag t-pay">~44€/persona</span><span class="tag t-warn">Sin descuento joven/UE · Canarios ~19,50€</span></div>
+  <div class="links"><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">Comprar entradas · Twin Ticket Siam+Loro (~69,56€)</a></div></div>
+  <div class="act food"><div class="act-meta"><span class="act-time">13:00</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en el parque</h3>
+    <div class="lopt"><strong>Sala Thai</strong>Restaurante principal, temática tailandesa</div>
+    <div class="lopt"><strong>Puestos de comida rápida</strong>Repartidos por el parque, más ágiles</div>
+    <div class="lopt"><strong>Picnic propio</strong>Se puede entrar con comida</div>
+  </div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">17:15</span><span class="atype ts">Playa</span></div><h3>Playa del Duque</h3><p>La playa más elegante del sur: arena dorada, Bandera Azul, aguas cristalinas. Paseo marítimo con terraza al atardecer. ~2 h.</p><div class="tags"><span class="tag t-free">Gratuita · Bandera Azul</span></div></div>
+  <div class="day-end">Casa ~20:00 h · Cena en casa</div>
+</div>
+
+<!-- D7 -->
+<div id="d7" class="day">
+  <div class="day-hdr"><h2>Mañana en Tacoronte → Aeropuerto TFN</h2><p>Jueves 28 mayo · Vuelo 15:55 h · TFN a 10 min</p></div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">08:30</span><span class="atype td">Salida</span></div><h3>Check-out + desayuno tranquilo</h3><p>Maletas al coche, último desayuno sin ninguna prisa.</p></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">09:15</span><span class="atype ts">Baño</span></div><h3>Mesa del Mar / El Pris — Último baño</h3><p>A 5 min del alojamiento. Piscinas volcánicas locales sin turistas. El sitio más auténtico de toda la semana, antes de que llegue nadie. ~45 min.</p><div class="tags"><span class="tag t-free">Gratuitas</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">10:15</span><span class="atype tc">Mirador</span></div><h3>Mirador de El Lance — El Sauzal</h3><p>A 5 min. Una de las mejores vistas de toda Tenerife: el Teide, el Valle de La Orotava y el Atlántico todo junto. ~20 min.</p><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">10:45</span><span class="atype tc">Cultural</span></div><h3>Casa del Vino de Tenerife — El Sauzal</h3><p>Hacienda del s. XVII. Museo del vino gratuito, jardines con vistas al Teide y tienda de vinos canarios para llevarse botellas de Tacoronte-Acentejo. ~45 min.</p><div class="tags"><span class="tag t-free">Museo gratuito</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">11:45</span><span class="atype tc">Cultural</span></div><h3>Mercado Municipal de La Laguna + último paseo</h3><p>Último paseo por el casco histórico UNESCO. Comprar mojo, queso canario, gofio y vino para llevar. ~1 h.</p><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">13:00</span><span class="atype td">Aeropuerto</span></div><h3>TFN — Devolución coche + facturación</h3><p>10 min en coche. ~30 min de trámites. Holgura amplia hasta el vuelo.</p><div class="tags"><span class="tag t-info">Estar en TFN a las 13:30 h</span></div></div>
+  <div class="day-end" style="background:#0d4343;color:#fff">Despegue TFN 15:55 h — ¡Buen viaje!</div>
+</div>
+
+<!-- Precios -->
+<div id="pr" class="day">
+  <div class="day-hdr"><h2>Guía de precios y entradas</h2><p>Con enlaces directos de reserva</p></div>
+  <table class="ptable">
+    <thead><tr><th>Atracción</th><th>Precio</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Permiso cráter Teide</strong><br><span style="color:#6b7280;font-size:11px">200 plazas/día · meses de antelación</span><br><a class="lnk" href="https://www.reservasparquesnacionales.es/real/parquesNac/usu/html/detalle-actividad-oapn.aspx?cen=2&act=1" target="_blank">Reservar gratis</a></td><td><span class="tag t-free">GRATUITO</span></td></tr>
+      <tr><td><strong>Loro Parque</strong><br><a class="lnk" href="https://www.headout.com/es/loro-parque-tenerife-l14498/" target="_blank">Headout (precio UE)</a><br><a class="lnk" href="https://www.tickets-tenerife.com/es/loro-parque/" target="_blank">tickets-tenerife.com (UE)</a></td><td>~44€ turista<br><span style="font-size:11px;color:#6b7280">Reducido UE con DNI</span></td></tr>
+      <tr><td><strong>Siam Park</strong><br><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">siampark.net</a></td><td>~44€<br><span style="font-size:11px;color:#6b7280">Sin dto. UE/joven</span></td></tr>
+      <tr><td><strong>Twin Ticket Loro+Siam</strong><br><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">siampark.net</a></td><td><strong>~69,56€</strong><br><span style="font-size:11px;color:#166534">Ahorra ~15€</span></td></tr>
+      <tr><td><strong>Drago Milenario</strong></td><td>~5€ taquilla</td></tr>
+      <tr><td><strong>Lago Martiánez</strong></td><td>~6€ taquilla</td></tr>
+      <tr><td><strong>Jardín Botánico P. Cruz</strong></td><td>3€ taquilla</td></tr>
+      <tr><td><strong>Bus Punta de Teno</strong></td><td>1€ (TITSA)</td></tr>
+      <tr><td><strong>Teleférico Teide</strong><br><span style="color:#6b7280;font-size:11px">No incluido en el itinerario</span><br><a class="lnk" href="https://www.volcanoteide.com/es/volcano_teide/teleferico_del_teide/teleferico_del_teide" target="_blank">volcanoteide.com</a></td><td>~42€<br><span style="font-size:11px;color:#6b7280">10% dto Carnet Joven</span></td></tr>
+    </tbody>
+  </table>
+  <div class="sec-title">Gastronomía imprescindible</div>
+  <div class="pill-grid">
+    <div class="gpill"><strong>Papas arrugadas</strong><span>Con mojo rojo y verde</span></div>
+    <div class="gpill"><strong>Gofio</strong><span>Cereal canario ancestral</span></div>
+    <div class="gpill"><strong>Queso canario</strong><span>Con miel de palma</span></div>
+    <div class="gpill"><strong>Pescado fresco</strong><span>En Roque de las Bodegas</span></div>
+    <div class="gpill"><strong>Bienmesabe</strong><span>Postre de almendra</span></div>
+    <div class="gpill"><strong>Vino Tacoronte</strong><span>D.O. local</span></div>
+    <div class="gpill"><strong>Guachinches</strong><span>El Sauzal, ~15–20€</span></div>
+    <div class="gpill"><strong>Carne en fiesta</strong><span>Plato típico interior</span></div>
+  </div>
+</div>
+
+<!-- Extras -->
+<div id="ex" class="day">
+  <div class="day-hdr"><h2>Alternativas y extras</h2><p>Por si sobra tiempo o queréis cambiar algo</p></div>
+
+  <div class="sec-title" style="margin-top:0">Naturaleza y senderismo</div>
+  <div class="act hike"><div class="act-meta"><span class="atype th">Senderismo</span></div><h3>Barranco de Masca — Descenso al mar</h3><p>El barranco más famoso de Tenerife. Descenso de 5 km entre paredes de 600 m hasta una cala virgen. Solo sáb/dom/festivos con permiso gratuito previo. ~3 h, nivel moderado-difícil.</p><div class="tags"><span class="tag t-warn">Permiso gratuito obligatorio</span><span class="tag t-shoe">Calzado imprescindible</span></div></div>
+  <div class="act hike"><div class="act-meta"><span class="atype th">Senderismo</span></div><h3>Paisaje Lunar — Vilaflor</h3><p>Formaciones de roca blanca erosionada entre pinos canarios que parecen la Luna. 8 km, ~3 h, nivel moderado.</p><div class="tags"><span class="tag t-free">Gratuito · sin permiso</span><span class="tag t-shoe">Calzado imprescindible</span></div><div class="links"><a class="lnk" href="https://www.alltrails.com/es/ruta/spain/tenerife/ruta-paisaje-lunar" target="_blank">Ver en AllTrails</a></div></div>
+  <div class="act hike"><div class="act-meta"><span class="atype th">Senderismo</span></div><h3>Sendero Chinamada — Las Carboneras</h3><p>Pueblo de cuevas habitadas en Anaga. Ruta por la dorsal con vistas a ambos lados de la isla. ~6 km, nivel moderado.</p><div class="tags"><span class="tag t-free">Gratuito</span><span class="tag t-shoe">Calzado recomendado</span></div></div>
+  <div class="act drive"><div class="act-meta"><span class="atype td">Mirador</span></div><h3>Punta de Teno</h3><p>Extremo occidental de Tenerife. Faro histórico, vistas a La Gomera, La Palma y El Hierro. Aparcar en Buenavista y coger el bus de 1€.</p><div class="tags"><span class="tag t-pay">Bus 1€ · obligatorio</span><span class="tag t-warn">Verificar horario TITSA</span></div></div>
+
+  <div class="sec-title">Playas y baños</div>
+  <div class="act swim"><div class="act-meta"><span class="atype ts">Playa</span></div><h3>Playa de El Bollullo — Puerto de la Cruz</h3><p>Playa negra escondida entre acantilados, una de las más bonitas del norte. 20 min a pie desde la carretera. Sin servicios, muy salvaje.</p><div class="tags"><span class="tag t-free">Gratuita</span><span class="tag t-shoe">Calzado para el camino</span></div></div>
+  <div class="act swim"><div class="act-meta"><span class="atype ts">Piscina natural</span></div><h3>Piscinas de Bajamar</h3><p>Piscinas volcánicas con acceso cómodo, duchas y ambiente local. Menos conocidas que Punta del Hidalgo, más tranquilas.</p><div class="tags"><span class="tag t-free">Gratuita</span></div></div>
+  <div class="act swim"><div class="act-meta"><span class="atype ts">Playa</span></div><h3>Playa de Los Cristianos</h3><p>Playa urbana de arena tranquila en el sur turístico. Servicios completos. Cerca de Siam Park (D6).</p><div class="tags"><span class="tag t-free">Gratuita</span></div></div>
+
+  <div class="sec-title">Cultura y pueblos</div>
+  <div class="act culture"><div class="act-meta"><span class="atype tc">Museo</span></div><h3>Pirámides de Güímar</h3><p>Seis pirámides escalonadas de origen incierto. Parque etnográfico con museo.</p><div class="tags"><span class="tag t-pay">~10€ entrada</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="atype tc">Museo</span></div><h3>Museo de la Naturaleza y el Hombre — Santa Cruz</h3><p>Las momias guanches más importantes de Canarias. Imprescindible si os interesa la cultura prehispánica.</p><div class="tags"><span class="tag t-pay">~5€ entrada</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="atype tc">Jardín</span></div><h3>Jardín Botánico de Puerto de la Cruz</h3><p>Segundo jardín botánico más antiguo de España (Carlos III, 1788). 1.500 especies subtropicales. A 15 min del aeropuerto TFN.</p><div class="tags"><span class="tag t-pay">3€ · solo taquilla presencial</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="atype tc">Pueblo</span></div><h3>Los Silos — Pueblo del noroeste</h3><p>Pequeño pueblo costero junto a Buenavista del Norte. Tranquilo, muy local. A 10 min de Garachico.</p><div class="tags"><span class="tag t-free">Gratuito</span></div></div>
+
+  <div class="sec-title">Actividades y experiencias</div>
+  <div class="act park"><div class="act-meta"><span class="atype tp">Actividad</span></div><h3>Tour de estrellas — Teide</h3><p>Excursión nocturna con telescopios y guía. El cielo del Teide es uno de los mejores de Europa para astronomía.</p><div class="tags"><span class="tag t-pay">~35€/persona · reservar online</span></div><div class="links"><a class="lnk" href="https://www.volcanoteide.com/es/experiencias/noches_estrellas" target="_blank">Reservar tour estrellas</a></div></div>
+  <div class="act park"><div class="act-meta"><span class="atype tp">Actividad</span></div><h3>Avistamiento de cetáceos — Los Gigantes</h3><p>Barco de 2–2,5 h para ver calderón tropical garantizado + delfines. La mejor perspectiva de los acantilados.</p><div class="tags"><span class="tag t-pay">~35–40€/persona · operadoras en el puerto</span></div></div>
+  <div class="act park"><div class="act-meta"><span class="atype tp">Actividad</span></div><h3>Teleférico del Teide</h3><p>De 2.356 m a 3.555 m en 8 minutos. Por encima de las nubes. Senderos cortos sin permiso desde La Rambleta.</p><div class="tags"><span class="tag t-pay">~42€ · 10% dto Carnet Joven</span><span class="tag t-warn">Reservar con antelación</span></div><div class="links"><a class="lnk" href="https://www.volcanoteide.com/es/volcano_teide/teleferico_del_teide/teleferico_del_teide" target="_blank">Reservar teleférico</a></div></div>
+  <div class="act food"><div class="act-meta"><span class="atype tf">Gastronomía</span></div><h3>Noche en un guachinche — Tacoronte / El Sauzal</h3><p>La experiencia más auténtica de Tenerife. Bodegas familiares con comida casera canaria y su propio vino. A 5 min del alojamiento.</p><div class="tags"><span class="tag t-pay">~15–20€/persona</span><span class="tag t-warn">Sin reserva · buscar día que abren</span></div></div>
+</div>
+
+<script>
+function show(id,btn){
+  document.querySelectorAll('.day').forEach(d=>d.classList.remove('active'));
+  document.querySelectorAll('.np').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleInfo(){
+  document.getElementById('info-modal').classList.toggle('open');
+}
+function closeModalOverlay(e){
+  if(e.target===e.currentTarget) toggleInfo();
+}
+</script>
+</body>
+</html>
