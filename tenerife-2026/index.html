@@ -269,14 +269,14 @@ body{
   background:#fff;
   border-radius:14px;
   padding:.875rem 1rem;
-  margin-bottom:.25rem;
-  border-left:4px solid #e5e7eb;
-  box-shadow:0 2px 12px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.03);
+  margin-bottom:.5rem;
+  border:1px solid #e8ecf0;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
 }
-.act.optional{background:#fafafa;border-left-style:dashed;box-shadow:none;border:1px dashed #d1d5db;border-left:4px dashed #A883E7;opacity:.85;}
+.act.optional{background:#fafafa;border:1px dashed #d1d5db;opacity:.85;}
 .act-meta{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-bottom:.35rem}
 .act-time{font-size:12px;font-weight:700;color:#9ca3af;letter-spacing:.03em;min-width:36px}
-.atype{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;margin-left:auto}
+.atype{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;margin-left:auto}
 .act h3{font-size:14px;font-weight:700;margin-bottom:.25rem;line-height:1.35}
 .act p{font-size:12px;color:#6b7280;line-height:1.55;margin-bottom:.4rem}
 
@@ -304,13 +304,6 @@ body{
    park    → ámbar cálido    #d4700a
    food    → frambuesa       #cb4f72
 */
-.act.drive  {border-left-color:#64748b}
-.act.view   {border-left-color:#F2ED5A}
-.act.hike   {border-left-color:#70DB77}
-.act.swim   {border-left-color:#7BE1EF}
-.act.culture{border-left-color:#A883E7}
-.act.park   {border-left-color:#F3A92B}
-.act.food   {border-left-color:#cb4f72}
 
 /* TRANSFER — timeline */
 .transfer{
@@ -376,9 +369,8 @@ body{
   margin-top:.875rem;
   margin-bottom:.25rem;
 }
-.act.food{position:relative;padding-right:2rem;}
 .act.food h3{color:#fff}
-.food-arrow{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.65);font-size:26px;line-height:1;}
+.food-arrow{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;}
 .act.food .atype{background:rgba(255,255,255,.22);color:#fff}
 .act.food p,.act.food .lopt,.act.food .tags{display:none}
 .food-row{display:flex;align-items:center;gap:8px;}
@@ -599,7 +591,7 @@ body{
 
   <div class="act culture"><div class="act-meta"><span class="act-time">11:45</span><span class="atype tc">Cultural</span></div><h3>Santa Cruz de Tenerife</h3><p>Auditorio Adán Martín, Rambla de Santa Cruz, Parque García Sanabria, Iglesia de la Concepción.</p><div class="tags"><span class="tag t-tour">🎫 Free tour disponible</span></div></div>
 
-  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en Santa Cruz</h3><span class="food-arrow">›</span></div>
+  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en Santa Cruz</h3><span class="food-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
     <div class="lopt lopt-warn">⚠️ Pendiente — buscar restaurante</div>
   </div>
 
@@ -635,7 +627,7 @@ body{
 
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>25 min</span></div>
 
-  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en Vilaflor</h3><span class="food-arrow">›</span></div>
+  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en Vilaflor</h3><span class="food-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
     <div class="lopt lopt-warn">⚠️ Pendiente — buscar restaurante</div>
   </div>
 
@@ -661,7 +653,7 @@ body{
   <div class="act culture"><div class="act-meta"><span class="act-time">11:15</span><span class="atype tc">Cultural</span></div><h3>Pueblo de Taganana</h3><p>Caserío histórico entre montañas. Iglesia del s. XVI. Paseo breve y algo en un bar del pueblo.</p><div class="tags"></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
   <div class="act swim"><div class="act-meta"><span class="act-time">12:00</span><span class="atype ts">Playa</span></div><h3>Roque de las Bodegas</h3><p>Playa de arena y grava oscura con un gran roque volcánico. Ambiente local auténtico. Baño posible (aguas frescas, oleaje moderado).</p><div class="tags"></div></div>
-  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en Roque de las Bodegas</h3><span class="food-arrow">›</span></div>
+  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en Roque de las Bodegas</h3><span class="food-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
     <div class="lopt lopt-warn">⚠️ Pendiente — buscar restaurante</div>
   </div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>30 min</span></div>
@@ -686,7 +678,7 @@ body{
   </div>
   <div class="links"><a class="lnk" href="https://www.loroparque.com/ticketsonline/es/paso0" target="_blank">Web oficial</a><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">Twin Ticket Loro+Siam (~69,56€)</a></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
-  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en Puerto de la Cruz</h3><span class="food-arrow">›</span></div>
+  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en Puerto de la Cruz</h3><span class="food-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
     <div class="lopt lopt-warn">⚠️ Pendiente — buscar restaurante</div>
   </div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
@@ -713,7 +705,7 @@ body{
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>25 min</span></div>
   <div class="act culture"><div class="act-meta"><span class="act-time">11:15</span><span class="atype tc">Cultural</span></div><h3>Valle de Masca — Pueblo + mirador del barranco</h3><p>Pueblo a 650 m entre acantilados de 600 m. Uno de los paisajes más dramáticos de España. Carretera de montaña espectacular desde Garachico.</p><div class="tags"></div></div>
   <div class="act drive"><div class="act-meta"><span class="act-time">13:00</span><span class="atype td">Coche</span></div><h3>Bajada a Los Gigantes</h3><p>Bajada por la carretera de montaña desde Masca.</p><div class="tags"><span class="tag t-info">⏱ 20 min</span></div></div>
-  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en Los Gigantes</h3><span class="food-arrow">›</span></div>
+  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en Los Gigantes</h3><span class="food-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
     <div class="lopt lopt-warn">⚠️ Pendiente — buscar restaurante</div>
   </div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
@@ -736,7 +728,7 @@ body{
 
   <div class="act park"><div class="act-meta"><span class="act-time">10:00</span><span class="atype tp">Parque</span></div><h3>Siam Park</h3><p>10 años n.º 1 del mundo. Tower of Power (28 m a través de un acuario), Singha (n.º 1 Europa), ola de 3 m, río Mai Thai, Coco Beach.</p><div class="tags"><span class="tag t-info">🔒 Cierra 18:00 h</span></div>
   <div class="links"><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">Twin Ticket Loro+Siam (~69,56€)</a></div></div>
-  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en el parque</h3><span class="food-arrow">›</span></div>
+  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo en el parque</h3><span class="food-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
     <div class="lopt"><strong>Sala Thai</strong>Restaurante principal, temática tailandesa</div>
     <div class="lopt"><strong>Puestos de comida rápida</strong>Repartidos por el parque, más ágiles</div>
     <div class="lopt"><strong>Picnic propio</strong>Se puede entrar con comida</div>
@@ -765,7 +757,7 @@ body{
   <div class="act culture"><div class="act-meta"><span class="act-time">10:45</span><span class="atype tc">Cultural</span></div><h3>Casa del Vino de Tenerife — El Sauzal</h3><p>Hacienda del s. XVII. Museo del vino gratuito, jardines con vistas al Teide y tienda de vinos canarios para llevarse botellas de Tacoronte-Acentejo.</p><div class="tags"></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>15 min</span></div>
   <div class="act culture"><div class="act-meta"><span class="act-time">11:45</span><span class="atype tc">Cultural</span></div><h3>Mercado Municipal de La Laguna + último paseo</h3><p>Último paseo por el casco histórico UNESCO. Comprar mojo, queso canario, gofio y vino para llevar.</p><div class="tags"></div></div>
-  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo rápido en La Laguna</h3><span class="food-arrow">›</span></div>
+  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Almuerzo</span><h3>Almuerzo rápido en La Laguna</h3><span class="food-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>
     <div class="lopt lopt-warn">⚠️ Pendiente — buscar restaurante</div>
   </div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>10 min</span></div>
@@ -799,7 +791,7 @@ body{
   <div class="act park"><div class="act-meta"><span class="atype tp">Actividad</span></div><h3>Tour de estrellas — Teide</h3><p>Excursión nocturna con telescopios y guía. El cielo del Teide es uno de los mejores de Europa para astronomía.</p><div class="tags"><span class="tag t-pay">~35€/persona · reservar online</span></div><div class="links"><a class="lnk" href="https://www.volcanoteide.com/es/experiencias/noches_estrellas" target="_blank">Reservar tour estrellas</a></div></div>
   <div class="act park"><div class="act-meta"><span class="atype tp">Actividad</span></div><h3>Avistamiento de cetáceos — Los Gigantes</h3><p>Barco de 2–2,5 h para ver calderón tropical garantizado + delfines. La mejor perspectiva de los acantilados.</p><div class="tags"><span class="tag t-pay">~35–40€/persona · operadoras en el puerto</span></div></div>
   <div class="act park"><div class="act-meta"><span class="atype tp">Actividad</span></div><h3>Teleférico del Teide</h3><p>De 2.356 m a 3.555 m en 8 minutos. Por encima de las nubes. Senderos cortos sin permiso desde La Rambleta.</p><div class="tags"><span class="tag t-pay">~42€ · 10% dto Carnet Joven</span><span class="tag t-warn">Reservar con antelación</span></div><div class="links"><a class="lnk" href="https://www.volcanoteide.com/es/volcano_teide/teleferico_del_teide/teleferico_del_teide" target="_blank">Reservar teleférico</a></div></div>
-  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Gastronomía</span><h3>Noche en un guachinche — Tacoronte / El Sauzal</h3><span class="food-arrow">›</span></div><p>La experiencia más auténtica de Tenerife. Bodegas familiares con comida casera canaria y su propio vino. A 5 min del alojamiento.</p><div class="tags"><span class="tag t-pay">~15–20€/persona</span><span class="tag t-warn">Sin reserva · buscar día que abren</span></div>
+  <div class="act food" onclick="openFood(this)"><div class="food-row"><span class="atype tf">Gastronomía</span><h3>Noche en un guachinche — Tacoronte / El Sauzal</h3><span class="food-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div><p>La experiencia más auténtica de Tenerife. Bodegas familiares con comida casera canaria y su propio vino. A 5 min del alojamiento.</p><div class="tags"><span class="tag t-pay">~15–20€/persona</span><span class="tag t-warn">Sin reserva · buscar día que abren</span></div>
     <div class="lopt lopt-warn">⚠️ Pendiente — buscar guachinche</div>
   </div>
 </div>
