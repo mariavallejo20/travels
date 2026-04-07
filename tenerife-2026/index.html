@@ -288,8 +288,10 @@ body{
 .shows-btn.open svg{transform:rotate(180deg);}
 .shows-list{display:none;flex-direction:column;gap:4px;margin-top:6px;}
 .shows-list.open{display:flex;}
-.show-item{background:#f0faf8;border-radius:8px;padding:8px 10px;font-size:13px;display:flex;align-items:baseline;gap:6px;}
+.show-item{background:#f0faf8;border-radius:8px;padding:8px 10px;font-size:13px;display:flex;flex-direction:column;gap:3px;}
 .show-item strong{color:#1a7a6e;white-space:nowrap;}
+.show-times{font-size:12px;color:#475569;letter-spacing:.01em;}
+.show-dur{font-size:11px;color:#94a3b8;}
 .lnk{font-size:12px;color:#2563eb;text-decoration:none;padding:2px 0}
 .lnk::before{content:'↗ '}
 
@@ -302,9 +304,10 @@ body{
    food    → frambuesa       #cb4f72
 */
 .act.drive  {border-left-color:#64748b}
-.act.hike   {border-left-color:#3a9458}
-.act.swim   {border-left-color:#1a8da6}
-.act.culture{border-left-color:#8a5dc7}
+.act.view   {border-left-color:#F2ED5A}
+.act.hike   {border-left-color:#70DB77}
+.act.swim   {border-left-color:#7BE1EF}
+.act.culture{border-left-color:#A883E7}
 .act.park   {border-left-color:#d4700a}
 .act.food   {border-left-color:#cb4f72}
 
@@ -338,9 +341,10 @@ body{
 .tr-pill svg{flex-shrink:0;color:#94a3b8}
 
 .td{background:#f1f5f9;color:#64748b}
-.th{background:#dcfce7;color:#14532d}
-.ts{background:#cffafe;color:#164e63}
-.tc{background:#f3e8ff;color:#6b21a8}
+.tv{background:rgba(242,237,90,0.3);color:#5a4e00}
+.th{background:rgba(112,219,119,0.22);color:#14532d}
+.ts{background:rgba(123,225,239,0.22);color:#164e63}
+.tc{background:rgba(168,131,231,0.2);color:#5b21b6}
 .tp{background:#ffedd5;color:#7c2d12}
 .tf{background:#fce7f3;color:#9d174d}
 
@@ -387,6 +391,8 @@ body{
 .food-modal-title{font-size:1rem;font-weight:700;color:#0d2d2d}
 
 .transfer+.day-end{margin-top:.25rem}
+.snack{margin:.5rem 0}
+.snack span{display:flex;align-items:center;justify-content:center;gap:6px;background:rgba(203,79,114,0.1);border:1px solid #cb4f72;border-radius:9px;padding:8px 13px;font-size:12px;color:#9d174d;font-weight:500;width:100%;box-sizing:border-box;}
 .day-end{
   margin-top:1.25rem;padding:12px 16px;
   background:#e8f5f2;border-radius:10px;
@@ -639,7 +645,7 @@ body{
 
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>20 min</span></div>
 
-  <div class="act drive"><div class="act-meta"><span class="act-time">15:30</span><span class="atype td">Miradores</span></div><h3>Miradores de tarde</h3><p>Luz cálida y tonos anaranjados. Mirador del Tabonal Negro y Mirador de La Fortaleza (vistas del Valle de La Orotava y el mar).</p></div>
+  <div class="act view"><div class="act-meta"><span class="act-time">15:30</span><span class="atype tv">Mirador</span></div><h3>Miradores de tarde</h3><p>Luz cálida y tonos anaranjados. Mirador del Tabonal Negro y Mirador de La Fortaleza (vistas del Valle de La Orotava y el mar).</p><div class="tags"><span class="tag t-info">🚗 Ruta en coche</span></div></div>
 
   <div class="act culture"><div class="act-meta"><span class="act-time">17:30</span><span class="atype tc">Atardecer</span></div><h3>Mirador de Chipeque — Atardecer épico</h3><p>A 1.830 m en la TF-24. El sol se pone detrás del Teide sobre un mar de nubes. En mayo cae ~20:30 h.</p><div class="tags"><span class="tag t-pay">🌅 Ver el atardecer aquí</span></div></div>
 
@@ -654,7 +660,7 @@ body{
   <div class="alert">El parking de Cruz del Carmen se llena pronto los domingos. Salir a las 07:45 h sin falta.</div>
   <div class="act hike"><div class="act-meta"><span class="act-time">08:15</span><span class="atype th">Senderismo</span></div><h3>Cruz del Carmen — Sendero de los Sentidos</h3><p>1–3 km por laurisilva milenaria (Reserva de la Biosfera). Fresco y húmedo: chaqueta obligatoria.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-info">⏱ ~2 h</span></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>15 min</span></div>
-  <div class="act drive"><div class="act-meta"><span class="act-time">10:30</span><span class="atype td">Miradores</span></div><h3>Miradores de Anaga — Taborno + Bailadero</h3><p>Crestas de Anaga con vistas de barrancos y acantilados a ambos lados de la dorsal.</p><div class="tags"></div></div>
+  <div class="act view"><div class="act-meta"><span class="act-time">10:30</span><span class="atype tv">Mirador</span></div><h3>Miradores de Anaga — Taborno + Bailadero</h3><p>Crestas de Anaga con vistas de barrancos y acantilados a ambos lados de la dorsal.</p><div class="tags"><span class="tag t-info">🚗 Ruta en coche</span></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>15 min</span></div>
   <div class="act culture"><div class="act-meta"><span class="act-time">11:15</span><span class="atype tc">Cultural</span></div><h3>Pueblo de Taganana</h3><p>Caserío histórico entre montañas. Iglesia del s. XVI. Paseo breve y algo en un bar del pueblo.</p><div class="tags"></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
@@ -679,10 +685,10 @@ body{
   <div class="act park"><div class="act-meta"><span class="act-time">09:30</span><span class="atype tp">Parque</span></div><h3>Loro Parque</h3><p>N.º 1 del mundo (Tripadvisor). Orcas, delfines, pingüinario más grande del mundo, gorilas, tigres, leones, loros libres.</p><div class="tags"><span class="tag t-info">🔒 Cierra 17:30 h</span></div>
   <button class="shows-btn" onclick="toggleShows(this)">🎪 Espectáculos<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
   <div class="shows-list">
-    <div class="show-item"><strong>Orca Ocean</strong>—</div>
-    <div class="show-item"><strong>Free Flying</strong>—</div>
-    <div class="show-item"><strong>Sea Lions</strong>—</div>
-    <div class="show-item"><strong>Dolphin Academy</strong>—</div>
+    <div class="show-item"><strong>🦭 Leones Marinos</strong><span class="show-times">09:45 · 10:45 · 13:45 · 14:45 · 16:00</span><span class="show-dur">20 min</span></div>
+    <div class="show-item"><strong>🦜 Loros</strong><span class="show-times">10:25 · 12:15 · 14:30 · 15:30 · 16:45</span><span class="show-dur">20 min</span></div>
+    <div class="show-item"><strong>🐬 Delfines</strong><span class="show-times">11:00 · 12:45 · 15:00 · 16:15</span><span class="show-dur">20 min</span></div>
+    <div class="show-item"><strong>🐋 Orcas</strong><span class="show-times">11:45 · 14:30 · 15:45</span><span class="show-dur">20 min</span></div>
   </div>
   <div class="links"><a class="lnk" href="https://www.loroparque.com/ticketsonline/es/paso0" target="_blank">Web oficial</a><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">Twin Ticket Loro+Siam (~69,56€)</a></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
@@ -692,11 +698,12 @@ body{
     <div class="lopt"><strong>Terrazas de la Plaza del Charco</strong>Tapas frente al puerto pesquero</div>
   </div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
-  <div class="act swim"><div class="act-meta"><span class="act-time">14:45</span><span class="atype ts">Baño</span></div><h3>Puerto de la Cruz — Lago Martiánez + Plaza del Charco</h3><p>Piscinas de agua de mar diseñadas por César Manrique. Paseo por el barrio histórico.</p><div class="tags"><span class="tag t-pay">Lago ~6€ taquilla</span></div></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">14:45</span><span class="atype ts">Baño</span></div><h3>Puerto de la Cruz — Lago Martiánez + Plaza del Charco</h3><p>Piscinas de agua de mar diseñadas por César Manrique. Paseo por el barrio histórico.</p><div class="tags"><span class="tag t-pay">🪙 6€ taquilla</span></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>10 min</span></div>
   <div class="act culture"><div class="act-meta"><span class="act-time">16:00</span><span class="atype tc">Cultural</span></div><h3>La Orotava — Casco histórico colonial</h3><p>Casa de los Balcones (s. XVII), Plaza de la Constitución, Jardines Victoria con vistas al Teide.</p><div class="tags"></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>15 min</span></div>
   <div class="act culture"><div class="act-meta"><span class="act-time">17:00</span><span class="atype tc">Cultural</span></div><h3>San Cristóbal de La Laguna — Casco UNESCO</h3><p>Arquitectura colonial de colores, ambiente universitario. Plaza del Adelantado, Catedral, Calle Obispo Rey Redondo.</p><div class="tags"></div></div>
+  <div class="snack"><span>☕ Posible merienda en La Laguna</span></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>30 min</span></div>
   <div class="act hike"><div class="act-meta"><span class="act-time">19:30</span><span class="atype th">Senderismo</span></div><h3>Rambla de Castro — Sendero costero al atardecer</h3><p>A 10 min de Loro Parque. Palmeral más bello de Tenerife entre acantilados. Casona de los Castro, Fortín de San Fernando, Elevador Gordejuela (1903). Lineal: 2 km hasta Playa de Castro y vuelta.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-pay">🌅 Ver el atardecer aquí</span></div>
   <div class="links"><a class="lnk" href="https://www.tenerifeon.es/itinerarios/sendero/rambla-de-castro" target="_blank">Info sendero oficial</a></div></div>
@@ -708,19 +715,27 @@ body{
 <!-- D5 -->
 <div id="d5" class="day">
   <div class="day-hdr"><p>Martes 26 mayo</p><h2>Drago Milenario · Garachico · Masca · Los Gigantes · Playa de la Arena</h2></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">08:15</span><span class="atype tc">Cultural</span></div><h3>Icod de los Vinos — Drago Milenario</h3><p>El drago más longevo del mundo (~1.000 años), 18 m de altura, 20 m de perímetro. Jardín botánico espectacular. ~1 h.</p><div class="tags"><span class="tag t-pay">~5€ taquilla presencial</span></div></div>
-  <div class="act swim"><div class="act-meta"><span class="act-time">09:30</span><span class="atype ts">Baño</span></div><h3>Garachico — El Caletón + pueblo histórico</h3><p>El pueblo más bonito del norte. Piscinas volcánicas El Caletón: cubetas naturales de roca llenas por el mar, la imagen más icónica de Tenerife. Castillo San Miguel (s. XVI). ~1 h 30 min.</p><div class="tags"></div></div>
-  <div class="act hike"><div class="act-meta"><span class="act-time">11:15</span><span class="atype th">Pueblo</span></div><h3>Valle de Masca — Pueblo + mirador del barranco</h3><p>Pueblo a 650 m entre acantilados de 600 m. Uno de los paisajes más dramáticos de España. Carretera de montaña espectacular desde Garachico. ~1 h.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-warn">Sendero barranco: solo sáb/dom con permiso</span></div></div>
-  <div class="act drive"><div class="act-meta"><span class="act-time">13:00</span><span class="atype td">Coche</span></div><h3>Bajada a Los Gigantes</h3><p>20 min bajando desde Masca.</p></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">08:15</span><span class="atype tc">Cultural</span></div><h3>Icod de los Vinos — Drago Milenario</h3><p>El drago más longevo del mundo (~1.000 años), 18 m de altura, 20 m de perímetro. Jardín botánico espectacular.</p><div class="tags"><span class="tag t-pay">🪙 5€ taquilla</span></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>10 min</span></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">09:30</span><span class="atype ts">Baño</span></div><h3>Garachico — El Caletón + pueblo histórico</h3><p>El pueblo más bonito del norte. Piscinas volcánicas El Caletón: cubetas naturales de roca llenas por el mar, la imagen más icónica de Tenerife. Castillo San Miguel (s. XVI).</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>25 min</span></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">11:15</span><span class="atype tc">Cultural</span></div><h3>Valle de Masca — Pueblo + mirador del barranco</h3><p>Pueblo a 650 m entre acantilados de 600 m. Uno de los paisajes más dramáticos de España. Carretera de montaña espectacular desde Garachico.</p><div class="tags"></div></div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">13:00</span><span class="atype td">Coche</span></div><h3>Bajada a Los Gigantes</h3><p>Bajada por la carretera de montaña desde Masca.</p><div class="tags"><span class="tag t-info">⏱ 20 min</span></div></div>
   <div class="act food" onclick="openFood(this)"><div class="act-meta"><span class="act-time">14:00</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Los Gigantes</h3>
     <div class="lopt"><strong>Restaurantes del paseo marítimo</strong>Vistas a los acantilados, pescado fresco</div>
     <div class="lopt"><strong>Terrazas del puerto</strong>Ambiente marinero, raciones más económicas</div>
   </div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">15:00</span><span class="atype tc">Mirador</span></div><h3>Acantilados de Los Gigantes — Mirador de Archipenque</h3><p>600 m de pared negra sobre el Atlántico con La Gomera al fondo. A 5 min andando del puerto. También el paseo marítimo desde el nivel del agua. ~1 h.</p><div class="tags"></div></div>
-  <div class="act swim"><div class="act-meta"><span class="act-time">16:15</span><span class="atype ts">Playa</span></div><h3>Playa de la Arena — Puerto de Santiago</h3><p>A 5 min de Los Gigantes. Arena volcánica negra muy fina, aguas tranquilas y cristalinas, Bandera Azul. Una de las más bonitas del oeste de Tenerife. ~1 h 45 min.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
+  <div class="act view"><div class="act-meta"><span class="act-time">15:00</span><span class="atype tv">Mirador</span></div><h3>Acantilados de Los Gigantes — Mirador de Archipenque</h3><p>600 m de pared negra sobre el Atlántico con La Gomera al fondo. A 5 min andando del puerto. También el paseo marítimo desde el nivel del agua.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">16:15</span><span class="atype ts">Playa</span></div><h3>Playa de la Arena — Puerto de Santiago</h3><p>A 5 min de Los Gigantes. Arena volcánica negra muy fina, aguas tranquilas y cristalinas, Bandera Azul. Una de las más bonitas del oeste de Tenerife.</p><div class="tags"></div></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">19:30</span><span class="atype tc">Atardecer</span></div><h3>Atardecer en Los Gigantes</h3><p>El sol cae sobre el Atlántico entre los acantilados de 600 m. Dos opciones:</p>
+    <div class="lopt"><strong>Playa de la Arena</strong>Quedarse en la playa — paredes negras de Los Gigantes de fondo y La Gomera en el horizonte</div>
+    <div class="lopt"><strong>Mirador de Archipenque</strong>Volver al mirador (5 min en coche) — vista aérea completa sobre los acantilados</div>
+  <div class="tags"><span class="tag t-pay">🌅 Ver el atardecer aquí</span></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>55 min</span></div>
 
-  <div class="day-end">Casa <span class="aprox">≈</span> 18:30 h · El día más temprano</div>
+  <div class="day-end">Casa <span class="aprox">≈</span> 21:30 h</div>
 </div>
 
 <!-- D6 -->
