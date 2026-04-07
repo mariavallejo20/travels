@@ -241,13 +241,13 @@ body{
 .day{display:none;padding:1rem 1rem calc(5.5rem + env(safe-area-inset-bottom,0px))}
 .day.active{display:block}
 .day-hdr{margin-bottom:.875rem;padding-bottom:.75rem;border-bottom:1px solid #f0f4f3;text-align:center}
-.day-hdr p{font-size:11px;font-weight:700;color:#1a7a6e;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem}
+.day-hdr p{font-size:13px;font-weight:700;color:#1a7a6e;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem}
 .day-hdr h2{font-size:.875rem;font-weight:500;color:#6b7280;line-height:1.4}
 
 
 .alert{
-  background:#fffbeb;border-left:3px solid #f59e0b;
-  border-radius:0 8px 8px 0;
+  background:#fffbeb;border:1px solid #f59e0b;
+  border-radius:8px;
   padding:10px 13px;font-size:12px;color:#92400e;
   margin-bottom:.75rem;line-height:1.55;
 }
@@ -275,7 +275,7 @@ body{
 }
 .act-meta{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-bottom:.35rem}
 .act-time{font-size:12px;font-weight:700;color:#9ca3af;letter-spacing:.03em;min-width:36px}
-.atype{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+.atype{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;margin-left:auto}
 .act h3{font-size:14px;font-weight:700;margin-bottom:.25rem;line-height:1.35}
 .act p{font-size:12px;color:#6b7280;line-height:1.55;margin-bottom:.4rem}
 
@@ -361,7 +361,7 @@ body{
   -webkit-tap-highlight-color:transparent;
   touch-action:manipulation;
   margin-top:.875rem;
-  margin-bottom:.875rem;
+  margin-bottom:.25rem;
 }
 .act.food{position:relative;padding-right:2rem}
 .act.food h3{color:#fff}
@@ -379,6 +379,7 @@ body{
 .food-modal-time{font-size:11px;font-weight:700;color:#cb4f72;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
 .food-modal-title{font-size:1rem;font-weight:700;color:#0d2d2d}
 
+.transfer+.day-end{margin-top:.25rem}
 .day-end{
   margin-top:1.25rem;padding:12px 16px;
   background:#e8f5f2;border-radius:10px;
@@ -599,34 +600,50 @@ body{
 
   <div class="act swim"><div class="act-meta"><span class="act-time">19:30</span><span class="atype ts">Playa</span></div><h3>El Médano + La Tejita</h3><p>Pueblo bohemio, kitesurf espectacular. Aguas tranquilas en La Tejita.</p><div class="tags"><span class="tag t-pay">🌅 Ver el atardecer aquí</span></div></div>
 
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>50 min</span></div>
+
   <div class="day-end">Casa <span class="aprox">≈</span> 20:30 h</div>
 </div>
 
 <!-- D2 -->
 <div id="d2" class="day">
-  <div class="day-hdr"><h2>Pinar de La Esperanza + Parque Nacional del Teide + Vilaflor</h2><p>Sábado 23 mayo · Bosque, volcán y pueblo de montaña · Salida 07:15 h</p></div>
+  <div class="day-hdr"><p>Sábado 23 mayo</p><h2>Pinar de La Esperanza · Parque Nacional del Teide · Vilaflor</h2></div>
   <div class="alert">Calzado de senderismo recomendado todo el día. Ropa de abrigo, agua y protector solar alto. Temperatura 5–12°C en el Parque.</div>
-  <div class="note">Todo el día completamente gratuito excepto el almuerzo.</div>
-  <div class="rbox"><strong>El día en resumen</strong>Subida por TF-24 → Pinar de La Esperanza → entrada al Parque por El Portillo → Llano de Ucanca → Roques de García → base del teleférico → bajar a Vilaflor a comer → miradores de tarde → Chipeque al atardecer</div>
-  <div class="act drive"><div class="act-meta"><span class="act-time">07:15</span><span class="atype td">Coche</span></div><h3>Salida por la TF-24 — La Esperanza</h3><p>La carretera más bonita al Teide desde el norte: cruza un pinar centenario denso antes de emerger sobre las nubes. ~1 h hasta el Pinar.</p><div class="tags"></div></div>
-  <div class="act hike"><div class="act-meta"><span class="act-time">08:15</span><span class="atype th">Senderismo</span></div><h3>Pinar de La Esperanza — Paseo por el bosque</h3><p>Pinos canarios centenarios de hasta 30 m, suelo de pinocha, silencio total. Paseo de 2–3 km por pistas forestales llanas, ~50 min. Contraste brutal con el paisaje volcánico que viene después.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span></div></div>
-  <div class="act drive"><div class="act-meta"><span class="act-time">09:30</span><span class="atype td">Coche</span></div><h3>Entrada al Parque por El Portillo + Llano de Ucanca</h3><p>Centro de Visitantes El Portillo (exposición gratuita, ~30 min). Luego Llano de Ucanca: arena volcánica clara con el cono del Teide al fondo.</p><div class="tags"></div></div>
-  <div class="act hike"><div class="act-meta"><span class="act-time">10:45</span><span class="atype th">Senderismo</span></div><h3>Sendero Roques de García</h3><p>Circular de 4,5 km entre las formaciones más icónicas del Parque: La Catedral, Dedo de Dios, Roque Cinchado. El Teide al fondo en todo momento. ~1 h 45 min. Aparcamiento gratuito junto al inicio.</p><div class="tags"><span class="tag t-shoe">Calzado recomendado</span></div></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">12:45</span><span class="atype tc">Parada</span></div><h3>Base del teleférico — Vale la pena aunque no subas</h3><p>A 2 km de los Roques. El cono del Teide sobre tu cabeza a 2.356 m es impresionante. Exposición gratuita y cafetería. 15–20 min.</p><div class="tags"></div></div>
-  <div class="act drive"><div class="act-meta"><span class="act-time">13:15</span><span class="atype td">Coche</span></div><h3>Bajada a Vilaflor — ~25 min por TF-21</h3><p>El pueblo más alto de España (1.400 m). Casas blancas, iglesia del s. XVI, terrazas con vistas directas al Teide. Tranquilo y sin turismo.</p></div>
+
+  <div class="act drive"><div class="act-meta"><span class="act-time">07:15</span><span class="atype td">Coche</span></div><h3>Salida por la TF-24 — La Esperanza</h3><p>La carretera más bonita al Teide desde el norte: cruza un pinar centenario denso antes de emerger sobre las nubes.</p></div>
+
+  <div class="act hike"><div class="act-meta"><span class="act-time">08:15</span><span class="atype th">Senderismo</span></div><h3>Pinar de La Esperanza — Paseo por el bosque</h3><p>Pinos canarios centenarios de hasta 30 m, suelo de pinocha, silencio total. Paseo de 2–3 km por pistas forestales llanas. Contraste brutal con el paisaje volcánico que viene después.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-info">⏱ ~50 min</span></div></div>
+
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>30 min</span></div>
+
+  <div class="act drive"><div class="act-meta"><span class="act-time">09:30</span><span class="atype td">Parada</span></div><h3>El Portillo + Llano de Ucanca</h3><p>Centro de Visitantes El Portillo. Luego Llano de Ucanca: arena volcánica clara con el cono del Teide al fondo.</p></div>
+
+  <div class="act hike"><div class="act-meta"><span class="act-time">10:45</span><span class="atype th">Senderismo</span></div><h3>Sendero Roques de García</h3><p>Circular de 4,5 km entre las formaciones más icónicas del Parque: La Catedral, Dedo de Dios, Roque Cinchado. El Teide al fondo en todo momento.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-info">⏱ ~1 h 45 min</span></div></div>
+
+  <div class="act culture"><div class="act-meta"><span class="act-time">12:45</span><span class="atype tc">Parada</span></div><h3>Base del teleférico — Vale la pena aunque no subas</h3><p>A 2 km de los Roques. El cono del Teide sobre tu cabeza a 2.356 m es impresionante. Exposición y cafetería.</p></div>
+
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>25 min</span></div>
+
   <div class="act food" onclick="openFood(this)"><div class="act-meta"><span class="act-time">14:00</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Vilaflor</h3>
     <div class="lopt"><strong>Restaurante La Ruleta</strong>Cocina canaria de pueblo, precios muy razonables, ambiente local</div>
     <div class="lopt"><strong>Bar-restaurante El Sombrerito</strong>Raciones y platos del día, terraza con vistas al valle</div>
     <div class="lopt"><strong>Terrazas de la plaza</strong>Café o vino canario mientras ves el Teide</div>
   </div>
-  <div class="act drive"><div class="act-meta"><span class="act-time">15:30</span><span class="atype td">Miradores</span></div><h3>Vuelta al Parque — Miradores de tarde</h3><p>Luz cálida y tonos anaranjados. Paradas en Mirador del Tabonal Negro y Mirador de La Fortaleza (vistas del Valle de La Orotava y el mar).</p><div class="tags"></div></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">17:30</span><span class="atype tc">Atardecer</span></div><h3>Mirador de Chipeque — Atardecer épico</h3><p>A 1.830 m en la TF-24. El sol se pone detrás del Teide sobre un mar de nubes. En mayo cae ~20:30 h.</p><div class="tags"></div></div>
-  <div class="day-end">Casa <span class="aprox">≈</span> 21:00 h · Tour estrellas opcional <span class="aprox">≈</span> 22:00 h</div>
+
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>20 min</span></div>
+
+  <div class="act drive"><div class="act-meta"><span class="act-time">15:30</span><span class="atype td">Miradores</span></div><h3>Miradores de tarde</h3><p>Luz cálida y tonos anaranjados. Mirador del Tabonal Negro y Mirador de La Fortaleza (vistas del Valle de La Orotava y el mar).</p></div>
+
+  <div class="act culture"><div class="act-meta"><span class="act-time">17:30</span><span class="atype tc">Atardecer</span></div><h3>Mirador de Chipeque — Atardecer épico</h3><p>A 1.830 m en la TF-24. El sol se pone detrás del Teide sobre un mar de nubes. En mayo cae ~20:30 h.</p><div class="tags"><span class="tag t-pay">🌅 Ver el atardecer aquí</span></div></div>
+
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>30 min</span></div>
+
+  <div class="day-end">Casa <span class="aprox">≈</span> 21:00 h</div>
 </div>
 
 <!-- D3 -->
 <div id="d3" class="day">
-  <div class="day-hdr"><h2>Anaga · Taganana · Roque de las Bodegas · Punta del Hidalgo · Benijo</h2><p>Domingo 24 mayo · Laurisilva, piscinas y el atardecer más fotogénico · Salida 07:45 h</p></div>
+  <div class="day-hdr"><p>Domingo 24 mayo</p><h2>Anaga · Taganana · Roque de las Bodegas · Punta del Hidalgo · Benijo</h2></div>
   <div class="alert">El parking de Cruz del Carmen se llena pronto los domingos. Salir a las 07:45 h sin falta.</div>
   <div class="note">Benijo al atardecer (~20:30 h en mayo) es el punto culminante del día. Llegáis a las 17:30 h con tiempo de sobra. Llevar linterna para la vuelta por escaleras oscuras.</div>
   <div class="act hike"><div class="act-meta"><span class="act-time">08:15</span><span class="atype th">Senderismo</span></div><h3>Cruz del Carmen — Sendero de los Sentidos</h3><p>1–3 km por laurisilva milenaria (Reserva de la Biosfera). Fresco y húmedo: chaqueta obligatoria. ~2 h, nivel fácil.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span></div></div>
@@ -639,13 +656,15 @@ body{
     <div class="lopt"><strong>Picnic en la playa</strong>Traer comida preparada de Tacoronte</div>
   </div>
   <div class="act swim"><div class="act-meta"><span class="act-time">15:00</span><span class="atype ts">Baño</span></div><h3>Punta del Hidalgo — Piscinas volcánicas + faro</h3><p>Charco Las Furnias y El Arenisco: Bandera Azul, socorristas, duchas, rampas. Faro singular. Vistas al Teide desde el mar. ~1 h 30 min.</p><div class="tags"></div></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">17:30</span><span class="atype tc">Atardecer</span></div><h3>Playa de Benijo — Atardecer más fotogénico de Tenerife</h3><p>Arena negra entre los Roques de Anaga. No apta para baño (oleaje fuerte). El sol cae sobre los roques ~20:30 h. Llevar linterna para la vuelta.</p><div class="tags"><span class="tag t-shoe">Calzado con suela para escaleras</span><span class="tag t-warn">Sin servicios · llevar agua · aparcamiento ~2€</span></div></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">17:30</span><span class="atype tc">Atardecer</span></div><h3>Playa de Benijo — Atardecer más fotogénico de Tenerife</h3><p>Arena negra entre los Roques de Anaga. No apta para baño (oleaje fuerte). El sol cae sobre los roques ~20:30 h. Llevar linterna para la vuelta.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-warn">Sin servicios · llevar agua · aparcamiento ~2€</span></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>40 min</span></div>
+
   <div class="day-end">Casa <span class="aprox">≈</span> 21:30 h</div>
 </div>
 
 <!-- D4 -->
 <div id="d4" class="day">
-  <div class="day-hdr"><h2>La Laguna · La Orotava · Puerto de la Cruz · Loro Parque · Rambla de Castro</h2><p>Lunes 25 mayo · Cultura, parque y sendero al atardecer · Salida 08:00 h</p></div>
+  <div class="day-hdr"><p>Lunes 25 mayo</p><h2>La Laguna · La Orotava · Puerto de la Cruz · Loro Parque · Rambla de Castro</h2></div>
   <div class="act culture"><div class="act-meta"><span class="act-time">08:30</span><span class="atype tc">Cultural</span></div><h3>San Cristóbal de La Laguna — Casco UNESCO</h3><p>Arquitectura colonial de colores, ambiente universitario. Plaza del Adelantado, Catedral, Calle Obispo Rey Redondo. ~1 h.</p><div class="tags"></div></div>
   <div class="act culture"><div class="act-meta"><span class="act-time">09:30</span><span class="atype tc">Cultural</span></div><h3>La Orotava — Casco histórico colonial</h3><p>Casa de los Balcones (s. XVII), Plaza de la Constitución, Jardines Victoria con vistas al Teide. ~45 min.</p><div class="tags"></div></div>
   <div class="act swim"><div class="act-meta"><span class="act-time">10:15</span><span class="atype ts">Baño</span></div><h3>Puerto de la Cruz — Lago Martiánez + Plaza del Charco</h3><p>Piscinas de agua de mar diseñadas por César Manrique. Paseo por el barrio histórico. ~1 h 30 min.</p><div class="tags"><span class="tag t-pay">Lago ~6€ taquilla</span></div></div>
@@ -658,15 +677,17 @@ body{
   <div class="links"><a class="lnk" href="https://www.loroparque.com/ticketsonline/es/paso0" target="_blank">Web oficial</a><a class="lnk" href="https://www.headout.com/es/loro-parque-tenerife-l14498/" target="_blank">Precio UE — Headout</a><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">Twin Ticket Loro+Siam (~69,56€)</a></div></div>
   <div class="act hike"><div class="act-meta"><span class="act-time">17:45</span><span class="atype th">Senderismo</span></div><h3>Rambla de Castro — Sendero costero al atardecer</h3><p>A 10 min de Loro Parque. Palmeral más bello de Tenerife entre acantilados. Casona de los Castro, Fortín de San Fernando, Elevador Gordejuela (1903). Lineal: 2 km hasta Playa de Castro y vuelta. ~2 h. Luz hasta las 20:30 h.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span></div>
   <div class="links"><a class="lnk" href="https://www.tenerifeon.es/itinerarios/sendero/rambla-de-castro" target="_blank">Info sendero oficial</a></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>20 min</span></div>
+
   <div class="day-end">Casa <span class="aprox">≈</span> 20:00 h</div>
 </div>
 
 <!-- D5 -->
 <div id="d5" class="day">
-  <div class="day-hdr"><h2>Drago Milenario · Garachico · Masca · Los Gigantes · Playa de la Arena</h2><p>Martes 26 mayo · El noroeste más salvaje · Salida 07:30 h</p></div>
+  <div class="day-hdr"><p>Martes 26 mayo</p><h2>Drago Milenario · Garachico · Masca · Los Gigantes · Playa de la Arena</h2></div>
   <div class="act culture"><div class="act-meta"><span class="act-time">08:15</span><span class="atype tc">Cultural</span></div><h3>Icod de los Vinos — Drago Milenario</h3><p>El drago más longevo del mundo (~1.000 años), 18 m de altura, 20 m de perímetro. Jardín botánico espectacular. ~1 h.</p><div class="tags"><span class="tag t-pay">~5€ taquilla presencial</span></div></div>
   <div class="act swim"><div class="act-meta"><span class="act-time">09:30</span><span class="atype ts">Baño</span></div><h3>Garachico — El Caletón + pueblo histórico</h3><p>El pueblo más bonito del norte. Piscinas volcánicas El Caletón: cubetas naturales de roca llenas por el mar, la imagen más icónica de Tenerife. Castillo San Miguel (s. XVI). ~1 h 30 min.</p><div class="tags"></div></div>
-  <div class="act hike"><div class="act-meta"><span class="act-time">11:15</span><span class="atype th">Pueblo</span></div><h3>Valle de Masca — Pueblo + mirador del barranco</h3><p>Pueblo a 650 m entre acantilados de 600 m. Uno de los paisajes más dramáticos de España. Carretera de montaña espectacular desde Garachico. ~1 h.</p><div class="tags"><span class="tag t-shoe">Calzado con suela para miradores</span><span class="tag t-warn">Sendero barranco: solo sáb/dom con permiso</span></div></div>
+  <div class="act hike"><div class="act-meta"><span class="act-time">11:15</span><span class="atype th">Pueblo</span></div><h3>Valle de Masca — Pueblo + mirador del barranco</h3><p>Pueblo a 650 m entre acantilados de 600 m. Uno de los paisajes más dramáticos de España. Carretera de montaña espectacular desde Garachico. ~1 h.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-warn">Sendero barranco: solo sáb/dom con permiso</span></div></div>
   <div class="act drive"><div class="act-meta"><span class="act-time">13:00</span><span class="atype td">Coche</span></div><h3>Bajada a Los Gigantes</h3><p>20 min bajando desde Masca.</p></div>
   <div class="act food" onclick="openFood(this)"><div class="act-meta"><span class="act-time">14:00</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Los Gigantes</h3>
     <div class="lopt"><strong>Restaurantes del paseo marítimo</strong>Vistas a los acantilados, pescado fresco</div>
@@ -674,12 +695,14 @@ body{
   </div>
   <div class="act culture"><div class="act-meta"><span class="act-time">15:00</span><span class="atype tc">Mirador</span></div><h3>Acantilados de Los Gigantes — Mirador de Archipenque</h3><p>600 m de pared negra sobre el Atlántico con La Gomera al fondo. A 5 min andando del puerto. También el paseo marítimo desde el nivel del agua. ~1 h.</p><div class="tags"></div></div>
   <div class="act swim"><div class="act-meta"><span class="act-time">16:15</span><span class="atype ts">Playa</span></div><h3>Playa de la Arena — Puerto de Santiago</h3><p>A 5 min de Los Gigantes. Arena volcánica negra muy fina, aguas tranquilas y cristalinas, Bandera Azul. Una de las más bonitas del oeste de Tenerife. ~1 h 45 min.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>55 min</span></div>
+
   <div class="day-end">Casa <span class="aprox">≈</span> 18:30 h · El día más temprano</div>
 </div>
 
 <!-- D6 -->
 <div id="d6" class="day">
-  <div class="day-hdr"><h2>Siam Park + Playa del Duque</h2><p>Miércoles 27 mayo · Adrenalina acuática y relax en el sur · Salida 08:45 h</p></div>
+  <div class="day-hdr"><p>Miércoles 27 mayo</p><h2>Siam Park · Playa del Duque</h2></div>
   <div class="alert">Llegar a Siam Park en la apertura (10:00 h) es clave para las principales atracciones sin colas.</div>
   <div class="note">Estáis en la zona de Adeje, junto a Playa de las Américas / Los Cristianos. Si queréis ver el paseo más turístico de Tenerife, este es el momento — podéis pasar por allí antes de Playa del Duque.</div>
   <div class="act park"><div class="act-meta"><span class="act-time">10:00</span><span class="atype tp">Parque</span></div><h3>Siam Park</h3><p>10 años n.º 1 del mundo. Tower of Power (28 m a través de un acuario), Singha (n.º 1 Europa), ola de 3 m, río Mai Thai, Coco Beach. Cierra 17:00 h.</p><div class="tags"><span class="tag t-pay">~44€/persona</span><span class="tag t-warn">Sin descuento joven/UE · Canarios ~19,50€</span></div>
@@ -690,12 +713,14 @@ body{
     <div class="lopt"><strong>Picnic propio</strong>Se puede entrar con comida</div>
   </div>
   <div class="act swim"><div class="act-meta"><span class="act-time">17:15</span><span class="atype ts">Playa</span></div><h3>Playa del Duque</h3><p>La playa más elegante del sur: arena dorada, Bandera Azul, aguas cristalinas. Paseo marítimo con terraza al atardecer. ~2 h.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>50 min</span></div>
+
   <div class="day-end">Casa <span class="aprox">≈</span> 20:00 h</div>
 </div>
 
 <!-- D7 -->
 <div id="d7" class="day">
-  <div class="day-hdr"><h2>Mañana en Tacoronte → Aeropuerto TFN</h2><p>Jueves 28 mayo · Vuelo 15:55 h · TFN a 10 min</p></div>
+  <div class="day-hdr"><p>Jueves 28 mayo</p><h2>Mesa del Mar · Casa del Vino · La Laguna · TFN</h2></div>
   <div class="act drive"><div class="act-meta"><span class="act-time">08:30</span><span class="atype td">Salida</span></div><h3>Check-out + desayuno tranquilo</h3><p>Maletas al coche, último desayuno sin ninguna prisa.</p></div>
   <div class="act swim"><div class="act-meta"><span class="act-time">09:15</span><span class="atype ts">Baño</span></div><h3>Mesa del Mar / El Pris — Último baño</h3><p>A 5 min del alojamiento. Piscinas volcánicas locales sin turistas. El sitio más auténtico de toda la semana, antes de que llegue nadie. ~45 min.</p><div class="tags"></div></div>
   <div class="act culture"><div class="act-meta"><span class="act-time">10:15</span><span class="atype tc">Mirador</span></div><h3>Mirador de El Lance — El Sauzal</h3><p>A 5 min. Una de las mejores vistas de toda Tenerife: el Teide, el Valle de La Orotava y el Atlántico todo junto. ~20 min.</p><div class="tags"></div></div>
@@ -707,7 +732,7 @@ body{
 
 <!-- Precios -->
 <div id="pr" class="day">
-  <div class="day-hdr"><h2>Guía de precios y entradas</h2><p>Con enlaces directos de reserva</p></div>
+  <div class="day-hdr"><p>Entradas y reservas</p><h2>Guía de precios</h2></div>
   <table class="ptable">
     <thead><tr><th>Atracción</th><th>Precio</th></tr></thead>
     <tbody>
@@ -737,16 +762,16 @@ body{
 
 <!-- Extras -->
 <div id="ex" class="day">
-  <div class="day-hdr"><h2>Alternativas y extras</h2><p>Por si sobra tiempo o queréis cambiar algo</p></div>
+  <div class="day-hdr"><p>Por si sobra tiempo</p><h2>Alternativas y extras</h2></div>
 
   <div class="sec-title" style="margin-top:0">Naturaleza y senderismo</div>
-  <div class="act hike"><div class="act-meta"><span class="atype th">Senderismo</span></div><h3>Barranco de Masca — Descenso al mar</h3><p>El barranco más famoso de Tenerife. Descenso de 5 km entre paredes de 600 m hasta una cala virgen. Solo sáb/dom/festivos con permiso gratuito previo. ~3 h, nivel moderado-difícil.</p><div class="tags"><span class="tag t-warn">Permiso gratuito obligatorio</span><span class="tag t-shoe">Calzado imprescindible</span></div></div>
-  <div class="act hike"><div class="act-meta"><span class="atype th">Senderismo</span></div><h3>Paisaje Lunar — Vilaflor</h3><p>Formaciones de roca blanca erosionada entre pinos canarios que parecen la Luna. 8 km, ~3 h, nivel moderado.</p><div class="tags"><span class="tag t-shoe">Calzado imprescindible</span></div><div class="links"><a class="lnk" href="https://www.alltrails.com/es/ruta/spain/tenerife/ruta-paisaje-lunar" target="_blank">Ver en AllTrails</a></div></div>
-  <div class="act hike"><div class="act-meta"><span class="atype th">Senderismo</span></div><h3>Sendero Chinamada — Las Carboneras</h3><p>Pueblo de cuevas habitadas en Anaga. Ruta por la dorsal con vistas a ambos lados de la isla. ~6 km, nivel moderado.</p><div class="tags"><span class="tag t-shoe">Calzado recomendado</span></div></div>
+  <div class="act hike"><div class="act-meta"><span class="atype th">Senderismo</span></div><h3>Barranco de Masca — Descenso al mar</h3><p>El barranco más famoso de Tenerife. Descenso de 5 km entre paredes de 600 m hasta una cala virgen. Solo sáb/dom/festivos con permiso gratuito previo. ~3 h, nivel moderado-difícil.</p><div class="tags"><span class="tag t-warn">Permiso gratuito obligatorio</span><span class="tag t-shoe">Calzado deportivo recomendado</span></div></div>
+  <div class="act hike"><div class="act-meta"><span class="atype th">Senderismo</span></div><h3>Paisaje Lunar — Vilaflor</h3><p>Formaciones de roca blanca erosionada entre pinos canarios que parecen la Luna. 8 km, ~3 h, nivel moderado.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span></div><div class="links"><a class="lnk" href="https://www.alltrails.com/es/ruta/spain/tenerife/ruta-paisaje-lunar" target="_blank">Ver en AllTrails</a></div></div>
+  <div class="act hike"><div class="act-meta"><span class="atype th">Senderismo</span></div><h3>Sendero Chinamada — Las Carboneras</h3><p>Pueblo de cuevas habitadas en Anaga. Ruta por la dorsal con vistas a ambos lados de la isla. ~6 km, nivel moderado.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span></div></div>
   <div class="act drive"><div class="act-meta"><span class="atype td">Mirador</span></div><h3>Punta de Teno</h3><p>Extremo occidental de Tenerife. Faro histórico, vistas a La Gomera, La Palma y El Hierro. Aparcar en Buenavista y coger el bus de 1€.</p><div class="tags"><span class="tag t-pay">Bus 1€ · obligatorio</span><span class="tag t-warn">Verificar horario TITSA</span></div></div>
 
   <div class="sec-title">Playas y baños</div>
-  <div class="act swim"><div class="act-meta"><span class="atype ts">Playa</span></div><h3>Playa de El Bollullo — Puerto de la Cruz</h3><p>Playa negra escondida entre acantilados, una de las más bonitas del norte. 20 min a pie desde la carretera. Sin servicios, muy salvaje.</p><div class="tags"><span class="tag t-shoe">Calzado para el camino</span></div></div>
+  <div class="act swim"><div class="act-meta"><span class="atype ts">Playa</span></div><h3>Playa de El Bollullo — Puerto de la Cruz</h3><p>Playa negra escondida entre acantilados, una de las más bonitas del norte. 20 min a pie desde la carretera. Sin servicios, muy salvaje.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span></div></div>
   <div class="act swim"><div class="act-meta"><span class="atype ts">Piscina natural</span></div><h3>Piscinas de Bajamar</h3><p>Piscinas volcánicas con acceso cómodo, duchas y ambiente local. Menos conocidas que Punta del Hidalgo, más tranquilas.</p><div class="tags"></div></div>
   <div class="act swim"><div class="act-meta"><span class="atype ts">Playa</span></div><h3>Playa de Los Cristianos</h3><p>Playa urbana de arena tranquila en el sur turístico. Servicios completos. Cerca de Siam Park (D6).</p><div class="tags"></div></div>
 
