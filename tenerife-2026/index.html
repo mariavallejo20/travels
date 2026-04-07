@@ -283,6 +283,13 @@ body{
 .tag{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:600}
 
 .links{display:flex;flex-direction:column;gap:4px;margin-top:.5rem}
+.shows-btn{display:flex;align-items:center;gap:8px;background:#eef7f5;border:1px solid #b8ddd6;border-radius:20px;padding:7px 14px;font-size:13px;font-weight:600;color:#1a7a6e;cursor:pointer;margin-top:10px;width:100%;text-align:left;}
+.shows-btn svg{transition:transform .2s;margin-left:auto;flex-shrink:0;}
+.shows-btn.open svg{transform:rotate(180deg);}
+.shows-list{display:none;flex-direction:column;gap:4px;margin-top:6px;}
+.shows-list.open{display:flex;}
+.show-item{background:#f0faf8;border-radius:8px;padding:8px 10px;font-size:13px;display:flex;align-items:baseline;gap:6px;}
+.show-item strong{color:#1a7a6e;white-space:nowrap;}
 .lnk{font-size:12px;color:#2563eb;text-decoration:none;padding:2px 0}
 .lnk::before{content:'↗ '}
 
@@ -645,18 +652,22 @@ body{
 <div id="d3" class="day">
   <div class="day-hdr"><p>Domingo 24 mayo</p><h2>Anaga · Taganana · Roque de las Bodegas · Punta del Hidalgo · Benijo</h2></div>
   <div class="alert">El parking de Cruz del Carmen se llena pronto los domingos. Salir a las 07:45 h sin falta.</div>
-  <div class="note">Benijo al atardecer (~20:30 h en mayo) es el punto culminante del día. Llegáis a las 17:30 h con tiempo de sobra. Llevar linterna para la vuelta por escaleras oscuras.</div>
-  <div class="act hike"><div class="act-meta"><span class="act-time">08:15</span><span class="atype th">Senderismo</span></div><h3>Cruz del Carmen — Sendero de los Sentidos</h3><p>1–3 km por laurisilva milenaria (Reserva de la Biosfera). Fresco y húmedo: chaqueta obligatoria. ~2 h, nivel fácil.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span></div></div>
-  <div class="act drive"><div class="act-meta"><span class="act-time">10:30</span><span class="atype td">Miradores</span></div><h3>Miradores de Anaga — Taborno + Bailadero</h3><p>Crestas de Anaga con vistas de barrancos y acantilados a ambos lados de la dorsal. ~30 min.</p><div class="tags"></div></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">11:15</span><span class="atype tc">Cultural</span></div><h3>Pueblo de Taganana</h3><p>Caserío histórico entre montañas. Iglesia del s. XVI. Paseo breve y algo en un bar del pueblo. ~30 min.</p><div class="tags"></div></div>
+  <div class="act hike"><div class="act-meta"><span class="act-time">08:15</span><span class="atype th">Senderismo</span></div><h3>Cruz del Carmen — Sendero de los Sentidos</h3><p>1–3 km por laurisilva milenaria (Reserva de la Biosfera). Fresco y húmedo: chaqueta obligatoria.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-info">⏱ ~2 h</span></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>15 min</span></div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">10:30</span><span class="atype td">Miradores</span></div><h3>Miradores de Anaga — Taborno + Bailadero</h3><p>Crestas de Anaga con vistas de barrancos y acantilados a ambos lados de la dorsal.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>15 min</span></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">11:15</span><span class="atype tc">Cultural</span></div><h3>Pueblo de Taganana</h3><p>Caserío histórico entre montañas. Iglesia del s. XVI. Paseo breve y algo en un bar del pueblo.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
   <div class="act swim"><div class="act-meta"><span class="act-time">12:00</span><span class="atype ts">Playa</span></div><h3>Roque de las Bodegas</h3><p>Playa de arena y grava oscura con un gran roque volcánico. Ambiente local auténtico. Baño posible (aguas frescas, oleaje moderado).</p><div class="tags"></div></div>
   <div class="act food" onclick="openFood(this)"><div class="act-meta"><span class="act-time">13:30</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Roque de las Bodegas</h3>
     <div class="lopt"><strong>Restaurante El Roque</strong>Primera línea de mar, pescado fresco del día</div>
     <div class="lopt"><strong>Chiringuitos de la playa</strong>Lapas a la brasa, pulpo, vino de Anaga</div>
     <div class="lopt"><strong>Picnic en la playa</strong>Traer comida preparada de Tacoronte</div>
   </div>
-  <div class="act swim"><div class="act-meta"><span class="act-time">15:00</span><span class="atype ts">Baño</span></div><h3>Punta del Hidalgo — Piscinas volcánicas + faro</h3><p>Charco Las Furnias y El Arenisco: Bandera Azul, socorristas, duchas, rampas. Faro singular. Vistas al Teide desde el mar. ~1 h 30 min.</p><div class="tags"></div></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">17:30</span><span class="atype tc">Atardecer</span></div><h3>Playa de Benijo — Atardecer más fotogénico de Tenerife</h3><p>Arena negra entre los Roques de Anaga. No apta para baño (oleaje fuerte). El sol cae sobre los roques ~20:30 h. Llevar linterna para la vuelta.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-warn">Sin servicios · llevar agua · aparcamiento ~2€</span></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>30 min</span></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">15:00</span><span class="atype ts">Baño</span></div><h3>Punta del Hidalgo — Piscinas volcánicas + faro</h3><p>Charco Las Furnias y El Arenisco: Bandera Azul, socorristas, duchas, rampas. Faro singular. Vistas al Teide desde el mar.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>30 min</span></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">17:30</span><span class="atype tc">Atardecer</span></div><h3>Playa de Benijo — Atardecer más fotogénico de Tenerife</h3><p>Arena negra entre los Roques de Anaga. No apta para baño (oleaje fuerte). El sol cae sobre los roques ~20:30 h. Llevar linterna para la vuelta.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-warn">Sin servicios · llevar agua · aparcamiento ~2€</span><span class="tag t-pay">🌅 Ver el atardecer aquí</span></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>40 min</span></div>
 
   <div class="day-end">Casa <span class="aprox">≈</span> 21:30 h</div>
@@ -664,22 +675,34 @@ body{
 
 <!-- D4 -->
 <div id="d4" class="day">
-  <div class="day-hdr"><p>Lunes 25 mayo</p><h2>La Laguna · La Orotava · Puerto de la Cruz · Loro Parque · Rambla de Castro</h2></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">08:30</span><span class="atype tc">Cultural</span></div><h3>San Cristóbal de La Laguna — Casco UNESCO</h3><p>Arquitectura colonial de colores, ambiente universitario. Plaza del Adelantado, Catedral, Calle Obispo Rey Redondo. ~1 h.</p><div class="tags"></div></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">09:30</span><span class="atype tc">Cultural</span></div><h3>La Orotava — Casco histórico colonial</h3><p>Casa de los Balcones (s. XVII), Plaza de la Constitución, Jardines Victoria con vistas al Teide. ~45 min.</p><div class="tags"></div></div>
-  <div class="act swim"><div class="act-meta"><span class="act-time">10:15</span><span class="atype ts">Baño</span></div><h3>Puerto de la Cruz — Lago Martiánez + Plaza del Charco</h3><p>Piscinas de agua de mar diseñadas por César Manrique. Paseo por el barrio histórico. ~1 h 30 min.</p><div class="tags"><span class="tag t-pay">Lago ~6€ taquilla</span></div></div>
-  <div class="act food" onclick="openFood(this)"><div class="act-meta"><span class="act-time">12:00</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Puerto de la Cruz</h3>
+  <div class="day-hdr"><p>Lunes 25 mayo</p><h2>Loro Parque · Rambla de Castro · La Orotava · La Laguna</h2></div>
+  <div class="act park"><div class="act-meta"><span class="act-time">09:30</span><span class="atype tp">Parque</span></div><h3>Loro Parque</h3><p>N.º 1 del mundo (Tripadvisor). Orcas, delfines, pingüinario más grande del mundo, gorilas, tigres, leones, loros libres.</p><div class="tags"><span class="tag t-info">🔒 Cierra 17:30 h</span></div>
+  <button class="shows-btn" onclick="toggleShows(this)">🎪 Espectáculos<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+  <div class="shows-list">
+    <div class="show-item"><strong>Orca Ocean</strong>—</div>
+    <div class="show-item"><strong>Free Flying</strong>—</div>
+    <div class="show-item"><strong>Sea Lions</strong>—</div>
+    <div class="show-item"><strong>Dolphin Academy</strong>—</div>
+  </div>
+  <div class="links"><a class="lnk" href="https://www.loroparque.com/ticketsonline/es/paso0" target="_blank">Web oficial</a><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">Twin Ticket Loro+Siam (~69,56€)</a></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
+  <div class="act food" onclick="openFood(this)"><div class="act-meta"><span class="act-time">13:30</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en Puerto de la Cruz</h3>
     <div class="lopt"><strong>Restaurante El Botánico</strong>Cocina canaria clásica en el barrio histórico</div>
     <div class="lopt"><strong>Mercado Municipal</strong>Puestos de comida local y frutas tropicales</div>
     <div class="lopt"><strong>Terrazas de la Plaza del Charco</strong>Tapas frente al puerto pesquero</div>
   </div>
-  <div class="act park"><div class="act-meta"><span class="act-time">13:15</span><span class="atype tp">Parque</span></div><h3>Loro Parque — Tarde completa (~4 h)</h3><p>N.º 1 del mundo (Tripadvisor). Orcas, delfines, pingüinario más grande del mundo, gorilas, tigres, leones, loros libres. 4 espectáculos. Cierra 17:30 h.</p><div class="tags"><span class="tag t-pay">~44€ turista</span><span class="tag t-warn">Ciudadanos UE: precio reducido con DNI</span></div>
-  <div class="links"><a class="lnk" href="https://www.loroparque.com/ticketsonline/es/paso0" target="_blank">Web oficial</a><a class="lnk" href="https://www.headout.com/es/loro-parque-tenerife-l14498/" target="_blank">Precio UE — Headout</a><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">Twin Ticket Loro+Siam (~69,56€)</a></div></div>
-  <div class="act hike"><div class="act-meta"><span class="act-time">17:45</span><span class="atype th">Senderismo</span></div><h3>Rambla de Castro — Sendero costero al atardecer</h3><p>A 10 min de Loro Parque. Palmeral más bello de Tenerife entre acantilados. Casona de los Castro, Fortín de San Fernando, Elevador Gordejuela (1903). Lineal: 2 km hasta Playa de Castro y vuelta. ~2 h. Luz hasta las 20:30 h.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">14:45</span><span class="atype ts">Baño</span></div><h3>Puerto de la Cruz — Lago Martiánez + Plaza del Charco</h3><p>Piscinas de agua de mar diseñadas por César Manrique. Paseo por el barrio histórico.</p><div class="tags"><span class="tag t-pay">Lago ~6€ taquilla</span></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>10 min</span></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">16:00</span><span class="atype tc">Cultural</span></div><h3>La Orotava — Casco histórico colonial</h3><p>Casa de los Balcones (s. XVII), Plaza de la Constitución, Jardines Victoria con vistas al Teide.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>15 min</span></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">17:00</span><span class="atype tc">Cultural</span></div><h3>San Cristóbal de La Laguna — Casco UNESCO</h3><p>Arquitectura colonial de colores, ambiente universitario. Plaza del Adelantado, Catedral, Calle Obispo Rey Redondo.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>30 min</span></div>
+  <div class="act hike"><div class="act-meta"><span class="act-time">19:30</span><span class="atype th">Senderismo</span></div><h3>Rambla de Castro — Sendero costero al atardecer</h3><p>A 10 min de Loro Parque. Palmeral más bello de Tenerife entre acantilados. Casona de los Castro, Fortín de San Fernando, Elevador Gordejuela (1903). Lineal: 2 km hasta Playa de Castro y vuelta.</p><div class="tags"><span class="tag t-shoe">Calzado deportivo recomendado</span><span class="tag t-pay">🌅 Ver el atardecer aquí</span></div>
   <div class="links"><a class="lnk" href="https://www.tenerifeon.es/itinerarios/sendero/rambla-de-castro" target="_blank">Info sendero oficial</a></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>20 min</span></div>
 
-  <div class="day-end">Casa <span class="aprox">≈</span> 20:00 h</div>
+  <div class="day-end">Casa <span class="aprox">≈</span> 22:00 h · Día largo</div>
 </div>
 
 <!-- D5 -->
@@ -816,6 +839,10 @@ function showDay(id){
   document.getElementById('pill-label').textContent=m.label;
   closePicker();
   window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleShows(btn){
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
 }
 function togglePicker(){
   document.getElementById('day-picker').classList.toggle('open');
