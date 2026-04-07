@@ -273,6 +273,7 @@ body{
   border-left:4px solid #e5e7eb;
   box-shadow:0 2px 12px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.03);
 }
+.act.optional{background:#fafafa;border-left-style:dashed;box-shadow:none;border:1px dashed #d1d5db;border-left:4px dashed #A883E7;opacity:.85;}
 .act-meta{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-bottom:.35rem}
 .act-time{font-size:12px;font-weight:700;color:#9ca3af;letter-spacing:.03em;min-width:36px}
 .atype{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em;margin-left:auto}
@@ -308,7 +309,7 @@ body{
 .act.hike   {border-left-color:#70DB77}
 .act.swim   {border-left-color:#7BE1EF}
 .act.culture{border-left-color:#A883E7}
-.act.park   {border-left-color:#d4700a}
+.act.park   {border-left-color:#F3A92B}
 .act.food   {border-left-color:#cb4f72}
 
 /* TRANSFER — timeline */
@@ -345,7 +346,7 @@ body{
 .th{background:rgba(112,219,119,0.22);color:#14532d}
 .ts{background:rgba(123,225,239,0.22);color:#164e63}
 .tc{background:rgba(168,131,231,0.2);color:#5b21b6}
-.tp{background:#ffedd5;color:#7c2d12}
+.tp{background:rgba(243,169,43,0.2);color:#7c2d12}
 .tf{background:#fce7f3;color:#9d174d}
 
 .t-free{background:#dcfce7;color:#166534}
@@ -393,6 +394,10 @@ body{
 .transfer+.day-end{margin-top:.25rem}
 .snack{margin:.5rem 0}
 .snack span{display:flex;align-items:center;justify-content:center;gap:6px;background:rgba(203,79,114,0.1);border:1px solid #cb4f72;border-radius:9px;padding:8px 13px;font-size:12px;color:#9d174d;font-weight:500;width:100%;box-sizing:border-box;}
+.snack-note{font-size:12px;color:#9d174d;opacity:.7;margin:-2px 0 4px;padding:0 4px;}
+.snack.cultural{background:rgba(168,131,231,0.07);border:1px solid #A883E7;border-radius:14px;padding:.875rem 1rem;box-shadow:0 2px 12px rgba(0,0,0,.05);}
+.snack.cultural span{font-size:14px;font-weight:700;color:#4c1d95;display:block;background:none;border:none;border-radius:0;padding:0;width:auto;box-shadow:none;}
+.snack.cultural p{font-size:13px;color:#4c1d95;margin:6px 0 0;line-height:1.5;}
 .day-end{
   margin-top:1.25rem;padding:12px 16px;
   background:#e8f5f2;border-radius:10px;
@@ -584,7 +589,9 @@ body{
 <!-- D1 -->
 <div id="d1" class="day active">
   <div class="day-hdr"><p>Viernes 22 mayo</p><h2>Tajao · Candelaria · Santa Cruz · Teresitas · Médano</h2></div>
-
+  <div class="day-end" style="background:#0d4343;color:#fff;margin-top:.25rem;margin-bottom:.5rem">Aterrizaje TFS 07:40 h — ¡Bienvenidos a Tenerife! 🌋</div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">08:00</span><span class="atype td">Aeropuerto</span></div><h3>🚗 Recogida del coche — TFS</h3><p>Recoger el coche en el parking de la compañía y salir hacia el primer destino.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>25 min</span></div>
   <div class="act culture"><div class="act-meta"><span class="act-time">09:45</span><span class="atype tc">Paisaje</span></div><h3>Arco de Tajao</h3><p>Formación volcánica natural en forma de arco sobre el mar, en el pequeño pueblo pesquero de Tajao. Paseo corto por el puerto y las rocas.</p><div class="tags"></div></div>
 
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>10 min</span></div>
@@ -742,15 +749,21 @@ body{
 <div id="d6" class="day">
   <div class="day-hdr"><p>Miércoles 27 mayo</p><h2>Siam Park · Playa del Duque</h2></div>
   <div class="alert">Llegar a Siam Park en la apertura (10:00 h) es clave para las principales atracciones sin colas.</div>
-  <div class="note">Estáis en la zona de Adeje, junto a Playa de las Américas / Los Cristianos. Si queréis ver el paseo más turístico de Tenerife, este es el momento — podéis pasar por allí antes de Playa del Duque.</div>
-  <div class="act park"><div class="act-meta"><span class="act-time">10:00</span><span class="atype tp">Parque</span></div><h3>Siam Park</h3><p>10 años n.º 1 del mundo. Tower of Power (28 m a través de un acuario), Singha (n.º 1 Europa), ola de 3 m, río Mai Thai, Coco Beach. Cierra 17:00 h.</p><div class="tags"><span class="tag t-pay">~44€/persona</span><span class="tag t-warn">Sin descuento joven/UE · Canarios ~19,50€</span></div>
-  <div class="links"><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">Comprar entradas · Twin Ticket Siam+Loro (~69,56€)</a></div></div>
+
+  <div class="act park"><div class="act-meta"><span class="act-time">10:00</span><span class="atype tp">Parque</span></div><h3>Siam Park</h3><p>10 años n.º 1 del mundo. Tower of Power (28 m a través de un acuario), Singha (n.º 1 Europa), ola de 3 m, río Mai Thai, Coco Beach.</p><div class="tags"><span class="tag t-info">🔒 Cierra 18:00 h</span></div>
+  <div class="links"><a class="lnk" href="https://siampark.net/ticketsonline/es/paso0" target="_blank">Twin Ticket Loro+Siam (~69,56€)</a></div></div>
   <div class="act food" onclick="openFood(this)"><div class="act-meta"><span class="act-time">13:00</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo en el parque</h3>
     <div class="lopt"><strong>Sala Thai</strong>Restaurante principal, temática tailandesa</div>
     <div class="lopt"><strong>Puestos de comida rápida</strong>Repartidos por el parque, más ágiles</div>
     <div class="lopt"><strong>Picnic propio</strong>Se puede entrar con comida</div>
   </div>
-  <div class="act swim"><div class="act-meta"><span class="act-time">17:15</span><span class="atype ts">Playa</span></div><h3>Playa del Duque</h3><p>La playa más elegante del sur: arena dorada, Bandera Azul, aguas cristalinas. Paseo marítimo con terraza al atardecer. ~2 h.</p><div class="tags"></div></div>
+  <div class="snack cultural">
+    <span>🚶 Posible paseo por Playa de las Américas · Los Cristianos</span>
+    <p>El paseo marítimo más turístico de Tenerife. Ambiente animado, terrazas y playa de arena fina — buen contraste con el norte. Los Cristianos tiene puerto pesquero con más ambiente local.</p>
+  </div>
+  <div class="snack"><span>☕ Posible merienda en el paseo</span></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>10 min</span></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">18:15</span><span class="atype ts">Playa</span></div><h3>Playa del Duque</h3><p>La playa más elegante del sur: arena dorada, Bandera Azul, aguas cristalinas. Paseo marítimo con terraza al atardecer.</p><div class="tags"></div></div>
   <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>50 min</span></div>
 
   <div class="day-end">Casa <span class="aprox">≈</span> 20:00 h</div>
@@ -760,11 +773,21 @@ body{
 <div id="d7" class="day">
   <div class="day-hdr"><p>Jueves 28 mayo</p><h2>Mesa del Mar · Casa del Vino · La Laguna · TFN</h2></div>
   <div class="act drive"><div class="act-meta"><span class="act-time">08:30</span><span class="atype td">Salida</span></div><h3>Check-out + desayuno tranquilo</h3><p>Maletas al coche, último desayuno sin ninguna prisa.</p></div>
-  <div class="act swim"><div class="act-meta"><span class="act-time">09:15</span><span class="atype ts">Baño</span></div><h3>Mesa del Mar / El Pris — Último baño</h3><p>A 5 min del alojamiento. Piscinas volcánicas locales sin turistas. El sitio más auténtico de toda la semana, antes de que llegue nadie. ~45 min.</p><div class="tags"></div></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">10:15</span><span class="atype tc">Mirador</span></div><h3>Mirador de El Lance — El Sauzal</h3><p>A 5 min. Una de las mejores vistas de toda Tenerife: el Teide, el Valle de La Orotava y el Atlántico todo junto. ~20 min.</p><div class="tags"></div></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">10:45</span><span class="atype tc">Cultural</span></div><h3>Casa del Vino de Tenerife — El Sauzal</h3><p>Hacienda del s. XVII. Museo del vino gratuito, jardines con vistas al Teide y tienda de vinos canarios para llevarse botellas de Tacoronte-Acentejo. ~45 min.</p><div class="tags"></div></div>
-  <div class="act culture"><div class="act-meta"><span class="act-time">11:45</span><span class="atype tc">Cultural</span></div><h3>Mercado Municipal de La Laguna + último paseo</h3><p>Último paseo por el casco histórico UNESCO. Comprar mojo, queso canario, gofio y vino para llevar. ~1 h.</p><div class="tags"></div></div>
-  <div class="act drive"><div class="act-meta"><span class="act-time">13:00</span><span class="atype td">Aeropuerto</span></div><h3>TFN — Devolución coche + facturación</h3><p>10 min en coche. ~30 min de trámites. Holgura amplia hasta el vuelo.</p><div class="tags"><span class="tag t-info">Estar en TFN a las 13:30 h</span></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
+  <div class="act swim"><div class="act-meta"><span class="act-time">09:15</span><span class="atype ts">Baño</span></div><h3>Mesa del Mar / El Pris — Último baño</h3><p>Piscinas volcánicas locales sin turistas. El sitio más auténtico de toda la semana, antes de que llegue nadie.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">10:15</span><span class="atype tc">Mirador</span></div><h3>Mirador de El Lance — El Sauzal</h3><p>Una de las mejores vistas de toda Tenerife: el Teide, el Valle de La Orotava y el Atlántico todo junto.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>5 min</span></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">10:45</span><span class="atype tc">Cultural</span></div><h3>Casa del Vino de Tenerife — El Sauzal</h3><p>Hacienda del s. XVII. Museo del vino gratuito, jardines con vistas al Teide y tienda de vinos canarios para llevarse botellas de Tacoronte-Acentejo.</p><div class="tags"></div></div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>15 min</span></div>
+  <div class="act culture"><div class="act-meta"><span class="act-time">11:45</span><span class="atype tc">Cultural</span></div><h3>Mercado Municipal de La Laguna + último paseo</h3><p>Último paseo por el casco histórico UNESCO. Comprar mojo, queso canario, gofio y vino para llevar.</p><div class="tags"></div></div>
+  <div class="act food" onclick="openFood(this)"><div class="act-meta"><span class="act-time">12:30</span><span class="atype tf">Almuerzo</span></div><h3>Almuerzo rápido en La Laguna</h3>
+    <div class="lopt"><strong>Mercado de La Laguna</strong>Puestos de comida dentro del propio mercado, rápido y fácil</div>
+    <div class="lopt"><strong>Terrazas de la Plaza del Adelantado</strong>Bocadillo o ración antes de salir</div>
+    <div class="lopt"><strong>Cafetería de camino al aeropuerto</strong>Algo rápido para llevar si hay prisa</div>
+  </div>
+  <div class="transfer"><span class="tr-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>10 min</span></div>
+  <div class="act drive"><div class="act-meta"><span class="act-time">13:30</span><span class="atype td">Aeropuerto</span></div><h3>🚗 Devolución del coche — TFN</h3><p>Entregar el coche en el parking de la compañía y dirigirse a la terminal.</p><div class="tags"></div></div>
   <div class="day-end" style="background:#0d4343;color:#fff">Despegue TFN 15:55 h — ¡Buen viaje!</div>
 </div>
 
@@ -794,7 +817,6 @@ body{
     <div class="gpill"><strong>Bienmesabe</strong><span>Postre de almendra</span></div>
     <div class="gpill"><strong>Vino Tacoronte</strong><span>D.O. local</span></div>
     <div class="gpill"><strong>Guachinches</strong><span>El Sauzal, ~15–20€</span></div>
-    <div class="gpill"><strong>Carne en fiesta</strong><span>Plato típico interior</span></div>
   </div>
 </div>
 
@@ -823,7 +845,7 @@ body{
   <div class="act park"><div class="act-meta"><span class="atype tp">Actividad</span></div><h3>Tour de estrellas — Teide</h3><p>Excursión nocturna con telescopios y guía. El cielo del Teide es uno de los mejores de Europa para astronomía.</p><div class="tags"><span class="tag t-pay">~35€/persona · reservar online</span></div><div class="links"><a class="lnk" href="https://www.volcanoteide.com/es/experiencias/noches_estrellas" target="_blank">Reservar tour estrellas</a></div></div>
   <div class="act park"><div class="act-meta"><span class="atype tp">Actividad</span></div><h3>Avistamiento de cetáceos — Los Gigantes</h3><p>Barco de 2–2,5 h para ver calderón tropical garantizado + delfines. La mejor perspectiva de los acantilados.</p><div class="tags"><span class="tag t-pay">~35–40€/persona · operadoras en el puerto</span></div></div>
   <div class="act park"><div class="act-meta"><span class="atype tp">Actividad</span></div><h3>Teleférico del Teide</h3><p>De 2.356 m a 3.555 m en 8 minutos. Por encima de las nubes. Senderos cortos sin permiso desde La Rambleta.</p><div class="tags"><span class="tag t-pay">~42€ · 10% dto Carnet Joven</span><span class="tag t-warn">Reservar con antelación</span></div><div class="links"><a class="lnk" href="https://www.volcanoteide.com/es/volcano_teide/teleferico_del_teide/teleferico_del_teide" target="_blank">Reservar teleférico</a></div></div>
-  <div class="act food" onclick="openFood(this)"><div class="act-meta"><span class="atype tf">Gastronomía</span></div><h3>Noche en un guachinche — Tacoronte / El Sauzal</h3><p>La experiencia más auténtica de Tenerife. Bodegas familiares con comida casera canaria y su propio vino. A 5 min del alojamiento.</p><div class="tags"><span class="tag t-pay">~15–20€/persona</span><span class="tag t-warn">Sin reserva · buscar día que abren</span></div></div>
+  <div class="act food"><div class="act-meta"><span class="atype tf">Gastronomía</span></div><h3>Noche en un guachinche — Tacoronte / El Sauzal</h3><p>La experiencia más auténtica de Tenerife. Bodegas familiares con comida casera canaria y su propio vino. A 5 min del alojamiento.</p><div class="tags"><span class="tag t-pay">~15–20€/persona</span><span class="tag t-warn">Sin reserva · buscar día que abren</span></div></div>
 </div>
 
 <div id="food-modal" class="modal-overlay" onclick="closeFoodOverlay(event)">
