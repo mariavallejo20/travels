@@ -1,0 +1,40 @@
+/* ============================================================
+   TRANSFER — línea de tiempo entre actividades
+   ============================================================ */
+.transfer {
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+  padding:     2px 0 2px 1.1rem;
+  margin:      0 0 0.25rem;
+}
+
+/* Línea punteada vertical */
+.transfer::before {
+  content:    '';
+  width:      2px;
+  height:     28px;
+  flex-shrink:0;
+  background: repeating-linear-gradient(
+    to bottom,
+    #cbd5e1 0 5px,
+    transparent 5px 9px
+  );
+}
+
+/* Cápsula con icono y duración */
+.tr-pill {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           6px;
+  background:    var(--c-surface-alt);
+  border:        1px solid #e2e8f0;
+  border-radius: var(--r-md);
+  padding:       5px 11px 5px 8px;
+  font-size:     var(--text-sm);
+  font-weight:   600;
+  color:         #64748b;
+  box-shadow:    0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.tr-pill svg { flex-shrink: 0; color: #94a3b8; }

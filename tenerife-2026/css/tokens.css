@@ -1,0 +1,80 @@
+/* ============================================================
+   DESIGN TOKENS — fuente única de verdad para colores,
+   espaciados, tipografía y radios.
+   ============================================================ */
+:root {
+  /* ── Brand ─────────────────────────────────────────────── */
+  --c-primary:       #0d4343;
+  --c-primary-mid:   #1a7a6e;
+  --c-accent:        #f4a261;
+
+  /* ── Superficies ────────────────────────────────────────── */
+  --c-bg:            #f0f4f3;
+  --c-surface:       #ffffff;
+  --c-surface-alt:   #f8fafb;
+  --c-hero-bg:       #eef7f6;
+
+  /* ── Texto ──────────────────────────────────────────────── */
+  --c-text:          #1a1a2e;
+  --c-heading:       #0d2d2d;
+  --c-muted:         #6b7280;
+  --c-subtle:        #9ca3af;
+
+  /* ── Bordes ─────────────────────────────────────────────── */
+  --c-border:        #e8ecf0;
+  --c-border-light:  #f3f4f6;
+  --c-border-hero:   #e2eded;
+
+  /* ── Estados semánticos ─────────────────────────────────── */
+  --c-warn-bg:       #fffbeb;
+  --c-warn-border:   #f59e0b;
+  --c-warn-text:     #92400e;
+
+  --c-info-bg:       #eff6ff;
+  --c-info-border:   #3b82f6;
+  --c-info-text:     #1e40af;
+
+  --c-success-bg:    #e8f5f2;
+  --c-success-border:#b8ddd6;
+  --c-success-text:  #0d6657;
+
+  /* ── Tipos de actividad (badge .atype) ──────────────────── */
+  --c-type-drive:    #64748b;
+  --c-type-view:     #5a4e00;
+  --c-type-hike:     #3a9458;
+  --c-type-swim:     #1a8da6;
+  --c-type-culture:  #8a5dc7;
+  --c-type-park:     #d4700a;
+  --c-type-food:     #d4720a;
+
+  /* ── Radios ─────────────────────────────────────────────── */
+  --r-sm:   8px;
+  --r-md:   9px;
+  --r-lg:   10px;
+  --r-xl:   12px;
+  --r-2xl:  14px;
+  --r-3xl:  20px;
+  --r-full: 9999px;
+
+  /* ── Tipografía ─────────────────────────────────────────── */
+  --font:       -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --text-2xs:   9px;
+  --text-xs:    10px;
+  --text-sm:    11px;
+  --text-base:  12px;
+  --text-md:    13px;
+  --text-lg:    14px;
+  --text-xl:    15px;
+
+  /* ── Sombras ────────────────────────────────────────────── */
+  --shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-pill: 0 4px 24px rgba(13, 67, 67, 0.45);
+
+  /* ── Safe areas (iOS notch / home bar) ──────────────────── */
+  --safe-top:    env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --max-width: 480px;
+}

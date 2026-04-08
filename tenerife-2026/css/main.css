@@ -1,0 +1,13 @@
+/* ============================================================
+   MAIN — agrega todos los módulos CSS en orden de cascade.
+   Este es el único archivo enlazado desde index.html.
+   ============================================================ */
+@import 'tokens.css';
+@import 'base.css';
+@import 'hero.css';
+@import 'modal.css';
+@import 'navigation.css';
+@import 'layout.css';
+@import 'cards.css';
+@import 'transfer.css';
+@import 'tags.css';

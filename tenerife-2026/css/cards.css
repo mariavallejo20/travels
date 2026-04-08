@@ -1,0 +1,193 @@
+/* ============================================================
+   CARDS — tarjetas de actividad, tarjetas de comida,
+            opciones de comida, espectáculos, enlaces
+   ============================================================ */
+
+/* ── Activity card base ──────────────────────────────────── */
+.act {
+  background:    var(--c-surface);
+  border-radius: var(--r-2xl);
+  padding:       0.875rem 1rem;
+  margin-bottom: 0.5rem;
+  border:        1px solid var(--c-border);
+  box-shadow:    var(--shadow-sm);
+}
+
+.act.optional {
+  background: #fafafa;
+  border:     1px dashed #d1d5db;
+  opacity:    0.85;
+}
+
+.act-meta {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  gap:             7px;
+  margin-bottom:   0.35rem;
+}
+
+.act-time {
+  font-size:      var(--text-base);
+  font-weight:    700;
+  color:          var(--c-subtle);
+  letter-spacing: 0.03em;
+  min-width:      36px;
+}
+
+/* Badge de tipo */
+.atype {
+  font-size:      var(--text-sm);
+  font-weight:    700;
+  padding:        3px 10px;
+  border-radius:  var(--r-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-left:    auto;
+}
+
+.act h3 {
+  font-size:     var(--text-lg);
+  font-weight:   700;
+  margin-bottom: 0.25rem;
+  line-height:   1.35;
+}
+
+.act p {
+  font-size:     var(--text-base);
+  color:         var(--c-muted);
+  line-height:   1.55;
+  margin-bottom: 0.4rem;
+}
+
+/* ── Tags ────────────────────────────────────────────────── */
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+
+.tag {
+  font-size:     var(--text-xs);
+  padding:       2px 8px;
+  border-radius: var(--r-full);
+  font-weight:   600;
+}
+
+/* ── Links ───────────────────────────────────────────────── */
+.links { display: flex; flex-direction: column; gap: 4px; margin-top: 0.5rem; }
+
+.lnk {
+  font-size:       var(--text-base);
+  color:           #2563eb;
+  text-decoration: none;
+  padding:         2px 0;
+}
+
+.lnk::before { content: '↗ '; }
+
+/* ── Espectáculos (Loro Parque) ──────────────────────────── */
+.shows-btn {
+  display:       flex;
+  align-items:   center;
+  gap:           8px;
+  background:    #eef7f5;
+  border:        1px solid #b8ddd6;
+  border-radius: var(--r-full);
+  padding:       7px 14px;
+  font-size:     var(--text-md);
+  font-weight:   600;
+  color:         var(--c-primary-mid);
+  cursor:        pointer;
+  margin-top:    10px;
+  width:         100%;
+  text-align:    left;
+}
+
+.shows-btn svg { transition: transform 0.2s; margin-left: auto; flex-shrink: 0; }
+.shows-btn.open svg { transform: rotate(180deg); }
+
+.shows-list       { display: none; flex-direction: column; gap: 4px; margin-top: 6px; }
+.shows-list.open  { display: flex; }
+
+.show-item {
+  background:    #f0faf8;
+  border-radius: var(--r-sm);
+  padding:       8px 10px;
+  font-size:     var(--text-md);
+  display:       flex;
+  flex-direction:column;
+  gap:           3px;
+}
+
+.show-item strong { color: var(--c-primary-mid); white-space: nowrap; }
+.show-times       { font-size: var(--text-base); color: #475569; letter-spacing: 0.01em; }
+.show-dur         { font-size: var(--text-sm);   color: #94a3b8; }
+
+/* ── Opciones de comida (.lopt) ──────────────────────────── */
+.lopt {
+  font-size:     var(--text-base);
+  padding:       10px 0;
+  border-bottom: 1px solid var(--c-border-light);
+  color:         var(--c-muted);
+  line-height:   1.45;
+}
+
+.lopt:last-child { border-bottom: none; }
+
+.lopt strong {
+  color:         var(--c-text);
+  display:       block;
+  font-size:     var(--text-md);
+  font-weight:   700;
+  margin-bottom: 3px;
+}
+
+.lopt-warn {
+  background:    rgba(220, 38, 38, 0.1);
+  border:        1px solid #dc2626 !important;
+  border-radius: var(--r-sm);
+  padding:       10px 12px;
+  font-size:     var(--text-base);
+  color:         #991b1b;
+  font-weight:   500;
+  text-align:    center;
+  margin-top:    4px;
+  margin-bottom: 0;
+}
+
+/* ── Food trigger card ───────────────────────────────────── */
+.act.food {
+  background:    var(--c-type-food);
+  border-left:   none;
+  cursor:        pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action:  manipulation;
+  margin-top:    0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.act.food h3   { color: #fff; }
+.act.food .atype { background: rgba(255, 255, 255, 0.22); color: #fff; }
+
+/* Ocultar elementos internos — se muestran sólo en el modal */
+.act.food p,
+.act.food .lopt,
+.act.food .tags { display: none; }
+
+.food-row {
+  display:     flex;
+  align-items: center;
+  gap:         8px;
+}
+
+.food-row h3 { flex: 1; margin: 0; font-size: 0.9rem; }
+
+.food-arrow {
+  width:          28px;
+  height:         28px;
+  border-radius:  var(--r-full);
+  background:     rgba(255, 255, 255, 0.22);
+  border:         1px solid rgba(255, 255, 255, 0.3);
+  display:        flex;
+  align-items:    center;
+  justify-content:center;
+  flex-shrink:    0;
+  color:          #fff;
+}

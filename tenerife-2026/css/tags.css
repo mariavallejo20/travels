@@ -1,0 +1,21 @@
+/* ============================================================
+   TAGS & BADGES — colores de tipo de actividad (.atype)
+                   y colores de etiquetas informativas (.tag)
+   ============================================================ */
+
+/* ── Badges de tipo de actividad (.atype) ─────────────────── */
+.td { background: #f1f5f9;                    color: var(--c-type-drive);   } /* drive   */
+.tv { background: rgba(242, 237,  90, 0.30);  color: var(--c-type-view);    } /* view    */
+.th { background: rgba(112, 219, 119, 0.22);  color: var(--c-type-hike);    } /* hike    */
+.ts { background: rgba(123, 225, 239, 0.22);  color: var(--c-type-swim);    } /* swim    */
+.tc { background: rgba(168, 131, 231, 0.20);  color: var(--c-type-culture); } /* culture */
+.tp { background: rgba(243, 169,  43, 0.20);  color: #7c2d12;               } /* park    */
+.tf { background: #fdefd8;                    color: #8a3d00;               } /* food    */
+
+/* ── Etiquetas informativas (.tag) ───────────────────────── */
+.t-free { background: #dcfce7; color: #166534; }
+.t-tour { background: #dcfce7; color: #166534; }
+.t-pay  { background: #fef9c3; color: #713f12; }
+.t-warn { background: #fee2e2; color: #991b1b; }
+.t-shoe { background: #faf5ff; color: #6b21a8; }
+.t-info { background: #dbeafe; color: #1e40af; }

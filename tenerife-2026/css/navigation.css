@@ -1,0 +1,139 @@
+/* ============================================================
+   NAVIGATION — píldora flotante de día + selector de días
+   ============================================================ */
+
+/* ── Floating pill ────────────────────────────────────────── */
+.day-pill {
+  position:    fixed;
+  bottom:      calc(1.25rem + var(--safe-bottom));
+  left:        50%;
+  transform:   translateX(-50%);
+  background:  var(--c-primary);
+  color:       #fff;
+  border:      none;
+  border-radius: var(--r-full);
+  padding:     11px 16px 11px 12px;
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+  box-shadow:  var(--shadow-pill);
+  cursor:      pointer;
+  z-index:     200;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.pill-code {
+  background:     rgba(255, 255, 255, 0.15);
+  border-radius:  var(--r-full);
+  padding:        3px 10px;
+  font-size:      var(--text-base);
+  font-weight:    800;
+  letter-spacing: 0.02em;
+}
+
+.pill-label   { font-size: var(--text-md); font-weight: 600; }
+.pill-chevron { opacity: 0.6; margin-left: 2px; flex-shrink: 0; }
+
+/* ── Day picker (bottom sheet) ───────────────────────────── */
+.picker-overlay {
+  display:     none;
+  position:    fixed;
+  inset:       0;
+  background:  rgba(0, 0, 0, 0.45);
+  z-index:     300;
+  align-items: flex-end;
+}
+
+.picker-overlay.open { display: flex; }
+
+.picker-sheet {
+  background:    var(--c-surface);
+  border-radius: var(--r-3xl) var(--r-3xl) 0 0;
+  padding:       0 1.25rem calc(1.5rem + var(--safe-bottom));
+  width:         100%;
+  max-height:    80vh;
+  overflow-y:    auto;
+  -webkit-overflow-scrolling: touch;
+  animation:     slideUp 0.25s ease;
+}
+
+.picker-handle {
+  width:         40px;
+  height:        4px;
+  background:    var(--c-border-light);
+  border-radius: 2px;
+  margin:        12px auto 1rem;
+}
+
+.picker-title {
+  font-size:      var(--text-xs);
+  font-weight:    700;
+  color:          var(--c-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom:  0.75rem;
+}
+
+/* ── Picker items ─────────────────────────────────────────── */
+.picker-item {
+  display:     flex;
+  align-items: center;
+  gap:         12px;
+  padding:     10px 12px;
+  margin:      0 -12px;
+  border-radius: var(--r-xl);
+  cursor:      pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition:  background 0.15s;
+}
+
+.picker-item.active { background: #f0f9f7; }
+
+.picker-badge {
+  width:          48px;
+  height:         48px;
+  border-radius:  var(--r-xl);
+  background:     #f3f4f6;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  justify-content:center;
+  gap:            2px;
+  flex-shrink:    0;
+  transition:     background 0.15s;
+}
+
+.badge-emoji { font-size: 16px; line-height: 1; }
+
+.badge-txt {
+  font-size:      var(--text-2xs);
+  font-weight:    800;
+  color:          var(--c-muted);
+  letter-spacing: 0.03em;
+}
+
+.picker-item.active .picker-badge  { background: #e8f5f2; }
+.picker-item.active .badge-txt     { color: var(--c-primary-mid); }
+
+.picker-info { flex: 1; min-width: 0; }
+
+.picker-item-label {
+  font-size:   var(--text-lg);
+  font-weight: 600;
+  color:       var(--c-text);
+}
+
+.picker-item-sub {
+  font-size:     var(--text-sm);
+  color:         var(--c-subtle);
+  margin-top:    2px;
+  white-space:   nowrap;
+  overflow:      hidden;
+  text-overflow: ellipsis;
+}
+
+.picker-item.active .picker-item-label { color: var(--c-primary-mid); }
+.picker-check { display: none; }
