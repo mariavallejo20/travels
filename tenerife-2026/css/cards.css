@@ -19,6 +19,12 @@
   opacity:    0.85;
 }
 
+/* Sugerencia añadida a posteriori */
+.act.added {
+  background: #fff5f5;
+  border:     1px dashed #fca5a5;
+}
+
 .act-meta {
   display:         flex;
   align-items:     center;
