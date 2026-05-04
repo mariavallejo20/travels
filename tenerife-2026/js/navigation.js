@@ -9,8 +9,8 @@
 const DAY_META = {
   d1: { code: 'Día 1',  label: 'Viernes 22'    },
   d2: { code: 'Día 2',  label: 'Sábado 23'     },
-  d3: { code: 'Día 3',  label: 'Domingo 24'    },
-  d4: { code: 'Día 4',  label: 'Lunes 25'      },
+  d3: { code: 'Día 4',  label: 'Lunes 25'      },
+  d4: { code: 'Día 3',  label: 'Domingo 24'    },
   d5: { code: 'Día 5',  label: 'Martes 26'     },
   d6: { code: 'Día 6',  label: 'Miércoles 27'  },
   d7: { code: 'Día 7',  label: 'Jueves 28'     },
