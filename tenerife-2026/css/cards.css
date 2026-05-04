@@ -5,6 +5,7 @@
 
 /* ── Activity card base ──────────────────────────────────── */
 .act {
+  position:      relative;
   background:    var(--c-surface);
   border-radius: var(--r-2xl);
   padding:       0.875rem 1rem;
@@ -24,6 +25,38 @@
   background: #fff5f5;
   border:     1px dashed #fca5a5;
 }
+
+/* ── Etiqueta "Opcional" en esquina superior derecha ─────── */
+.act.added::after,
+.act.optional::after {
+  content:        'Opcional';
+  position:       absolute;
+  top:            10px;
+  left:           10px;
+  font-size:      var(--text-2xs);
+  font-weight:    700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding:        2px 7px;
+  border-radius:  var(--r-full);
+  background:     #fde8e8;
+  color:          #b91c1c;
+  border:         1px solid #fca5a5;
+}
+
+.act.optional::after {
+  background: #f1f5f9;
+  color:      #64748b;
+  border:     1px solid #d1d5db;
+}
+
+/* ── Franja de color por tipo de actividad ───────────────── */
+.act.culture:not(.added):not(.optional) { border-left: 4px solid var(--c-type-culture); }
+.act.swim:not(.added):not(.optional)    { border-left: 4px solid var(--c-type-swim);    }
+.act.hike:not(.added):not(.optional)    { border-left: 4px solid var(--c-type-hike);    }
+.act.park:not(.added):not(.optional)    { border-left: 4px solid var(--c-type-park);    }
+.act.drive:not(.added):not(.optional)   { border-left: 4px solid var(--c-type-drive);   }
+.act.view:not(.added):not(.optional)    { border-left: 4px solid #c9a800;               }
 
 .act-meta {
   display:         flex;
