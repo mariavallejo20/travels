@@ -121,6 +121,60 @@
 
 .lnk::before { content: '↗ '; }
 
+/* ── Map link button ─────────────────────────────────────── */
+.map-link {
+  display:         flex;
+  align-items:     center;
+  gap:             11px;
+  margin-top:      12px;
+  padding:         10px 12px;
+  background:      linear-gradient(135deg, #1a5c3a 0%, #2d7d52 60%, #358a5b 100%);
+  border-radius:   var(--r-xl);
+  text-decoration: none;
+  border:          1px solid rgba(255,255,255,0.13);
+  box-shadow:      0 3px 12px rgba(26, 92, 58, 0.38);
+  transition:      opacity 0.15s, transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.map-link:active {
+  opacity:   0.88;
+  transform: scale(0.985);
+}
+
+.map-link-icon {
+  width:           36px;
+  height:          36px;
+  border-radius:   var(--r-md);
+  background:      rgba(255,255,255,0.14);
+  border:          1px solid rgba(255,255,255,0.22);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+}
+
+.map-link-body { flex: 1; min-width: 0; }
+
+.map-link-label {
+  font-size:   var(--text-md);
+  font-weight: 700;
+  color:       #fff;
+  line-height: 1.2;
+}
+
+.map-link-sub {
+  font-size:  var(--text-xs);
+  color:      rgba(255,255,255,0.62);
+  margin-top: 2px;
+  letter-spacing: 0.01em;
+}
+
+.map-link-arrow {
+  flex-shrink: 0;
+  color:       rgba(255,255,255,0.55);
+}
+
 /* ── Espectáculos (Loro Parque) ──────────────────────────── */
 .shows-btn {
   display:       flex;
