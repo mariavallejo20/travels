@@ -100,7 +100,7 @@
 }
 
 /* ── Tags ────────────────────────────────────────────────── */
-.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.75rem; }
 
 .tag {
   font-size:     var(--text-xs);
