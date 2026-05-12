@@ -248,6 +248,10 @@
 /* ── Food trigger card ───────────────────────────────────── */
 .act.food {
   background:    var(--c-type-food);
+}
+
+.act.food.dinner {
+  background:    var(--c-type-dinner);
   border-left:   none;
   cursor:        pointer;
   -webkit-tap-highlight-color: transparent;
